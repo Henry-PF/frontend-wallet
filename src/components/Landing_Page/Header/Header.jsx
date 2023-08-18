@@ -1,5 +1,5 @@
 import React from 'react'
-import imgHeader from '../../assets/mobile-wallet-banner-img.png'
+import imgHeader from '../../../assets/mobile-wallet-banner-img.png'
 
 const Header = () => {
     return (

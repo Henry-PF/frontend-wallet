@@ -1,8 +1,8 @@
 import React from 'react'
-import imgPayment from '../../assets/paiment.png'
-import imgGestion from '../../assets/gestion.png'
-import imgSegurity from '../../assets/security.png'
-import imgGlobalPayment from '../../assets/global-payment.png'
+import imgPayment from '../../../assets/paiment.png'
+import imgGestion from '../../../assets/gestion.png'
+import imgSegurity from '../../../assets/security.png'
+import imgGlobalPayment from '../../../assets/global-payment.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -54,8 +54,10 @@ const Abaut = () => {
                     </div>
                     <span className='line text-center w-25'></span>
                     <div className='d-md-flex align-items-center justify-content-center px-5 pb-5 w-100'>
-                        <img src={imgSegurity} className='w-100 md-w-50 p-5' alt="" />
-                        <article className='container text-center fs-4 px-md-5'>
+                        <div data-aos="fade-right">
+                            <img src={imgSegurity} className='w-100 md-w-50 p-5' alt="" />
+                        </div>
+                        <article data-aos="fade-left" className='container text-center fs-4 px-md-5'>
                             La seguridad es primordial en smartPay. La billetera utiliza tecnologías de cifrado de última generación y autenticación biométrica para garantizar la protección de los datos y las transacciones de los usuarios.
                         </article>
                     </div>

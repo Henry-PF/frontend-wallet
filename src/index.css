@@ -20,6 +20,31 @@
   color: white;
 }
 
+.nav-link-dashboard {
+  font-size: 1.5em;
+  color: black;
+  margin: 0;
+}
+
+.nav-link-dashboard:hover {
+  color: black;
+}
+
+.navbar-vertical {
+  width: 113px;
+  height: calc(100vh - 72px);
+  padding: 0;
+}
+
+.nav-link-vertical {
+  width: 113px;
+  color: black;
+}
+
+.nav-link-vertical:hover {
+  background-color: black;
+}
+
 .nav-logo {
   width: 150px;
 }
@@ -27,4 +52,15 @@
 .line {
   background-color: rgb(156, 156, 156);
   height: 2px;
+}
+
+.sidebar-item {}
+
+.sidebar-item:hover {
+  color: black;
+  background-color: white;
+}
+
+.sidebar-item a:hover {
+  color: black;
 }
