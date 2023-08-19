@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
-// import axios from 'axios'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+// import axios from 'axios';
+
 
 const Login = () => {
   const [errors, setErrors] = useState({});
@@ -42,36 +43,13 @@ const Login = () => {
 
     setErrors(errors);
 
-    // Si no hay errores, setear access a true
     if (Object.keys(errors).length === 0) {
       setAccess(true);
     } else {
       setAccess(false);
     }
 
-    // if (!userData.email || !userData.password) {
-    //   newErrors.general = "Falta completar campos";
-    // } else
-    // if (
-    //   userData.email === userBDD.email &&
-    //   userData.password === userBDD.password
-    // ) {
-    //   setAccess(true);
-
-    // }else{
-    //     setAccess(false);
-    //     return;
-    // }
-
-    // if (!regexEmail.test(userData.email)) {
-    //   newErrors.email = "Email inválido";
-    // }
-
-    // if (!regexPassword.test(userData.password)) {
-    //   newErrors.password = "Password inválido";
-    // }
-
-    // setErrors(newErrors);
+ 
   };
 
   const handleChange = (event) => {
@@ -80,22 +58,34 @@ const Login = () => {
       ...prevUserData,
       [name]: value,
     }));
-    validate(); // Validar después de actualizar el estado de userData
-    // setErrors(validate({
-    //     ...userData,
-    //     [name] : value}))
+    validate(); 
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    validate();
+    // validate();
 
     if (access) {
       navigate("/");
     }
   };
 
-  // Encerrar las expresiones JSX dentro de paréntesis
+// const handleSubmit = async (event) => {
+//   event.preventDefault();
+
+//   try {
+//     const response = await axios.post('URL_DEL_BACKEND', {
+//       email: userData.email,
+//       password: userData.password,
+//     });
+
+ 
+//   } catch (error) {
+  
+//   }
+// };
+
+
   console.log(userData, "userdata");
   console.log(access, "ACCESS");
   console.log(errors, "ERRORS");
@@ -142,9 +132,7 @@ const Login = () => {
         <button className={styles.buttonSigIn} type="button" onClick={()=>{alert('vamos a registrarnos!')}}>
           SIGIN
         </button>
-        {/* <Link to="/">
-          <p className={styles.sigIn}>Sign Up</p>
-        </Link> */}
+    
       </fieldset>
     </form>
   </div>
