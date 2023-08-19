@@ -6,12 +6,14 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './components/Login/Login';
 
 function App() {
+
+
+  
   return (
     <div className="App">
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/home' element={<Home />} />
-        {/* <Home/> */}
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
     </div>
   );

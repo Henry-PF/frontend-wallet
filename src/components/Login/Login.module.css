@@ -4,20 +4,34 @@
 /*basic reset*/
 * {margin: 0; padding: 0;}
 
-html {
-	height: 100%;
-	background: linear-gradient(to bottom right, #121212, #464545);
-	background-size: cover;
+.loginContainer {
+	height: 100vh;
+	background: black;
     display: flex;
+	flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   
 }
+.fieldGroup {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+  }
+  
+  .inputGroup {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .errorContainer {
+	height: 30px;
+	display: flex;
+	align-items: center;
+	margin-left: 10px; /* Espacio entre el input y el mensaje de error */
+  }
 
-body {
-	font-family: montserrat, arial, verdana;
-	background: none; 
-}
 
   
 
@@ -37,7 +51,11 @@ body {
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
-	/* position: absolute; */
+}
+
+.sigIn{
+	text-decoration: none;
+	color: black;
 }
 
 /* Hide all except first fieldset */
@@ -50,7 +68,6 @@ body {
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	margin-bottom: 10px;
 	width: 100%;
 	box-sizing: border-box;
 	font-family: montserrat;
@@ -58,8 +75,14 @@ body {
 	font-size: 13px;
 }
 
+
+.passwordContainer, .emailContainer{
+	display: flex;
+	align-items: center;
+}
+
 /*buttons*/
-.msform .action-button {
+.msform button {
 	width: 100px;
 	background: #27AE60;
 	font-weight: bold;
@@ -72,14 +95,26 @@ body {
 	transition: background-color 0.3s ease; /* Smooth color transition */
 }
 
-.msform .action-button:hover, #msform .action-button:focus {
+.msform .buttonSigIn:hover, #msform .buttonSigIn:focus {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-	background: #24A155; /* Slightly darker green on hover */
+	background: #24A155; 
 }
+/* Estilos para el botón habilitado */
+.buttonLogIn:enabled {
+	background-color: #27AE60; /* Color de fondo verde */
+	color: white; /* Texto en color blanco */
+  }
+  
+  /* Estilos para el botón deshabilitado */
+  .buttonLogIn:disabled {
+	background-color: #CCCCCC; /* Color de fondo gris claro */
+	color: #666666; /* Texto en color gris más oscuro */
+  }
+  
 
 /*headings*/
 .fsTitle {
-	font-size: 15px;
+	font-size: 25px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
