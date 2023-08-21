@@ -6,7 +6,7 @@ import imgGlobalPayment from '../../assets/global-payment.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Abaut = () => {
+const About = () => {
     AOS.init();
     return (
         <>
@@ -80,4 +80,4 @@ const Abaut = () => {
     )
 }
 
-export default Abaut
+export default About

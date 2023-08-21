@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-// import axios from 'axios';
 
 const Login = () => {
   const [errors, setErrors] = useState({});
@@ -56,38 +55,23 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // validate();
 
     if (access) {
       navigate("/");
     }
   };
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
 
-  //   try {
-  //     const response = await axios.post('URL_DEL_BACKEND', {
-  //       email: userData.email,
-  //       password: userData.password,
-  //     });
 
-  //   } catch (error) {
 
-  //   }
-  // };
-
-  console.log(userData, "userdata");
-  console.log(access, "ACCESS");
-  console.log(errors, "ERRORS");
   return (
     <div className={styles.loginContainer}>
       <Navbar />
       <form id="msform" className={styles.msform} onSubmit={handleSubmit}>
-        <fieldset>
+        <fieldset className="container-fluid">
           <h2 className={styles.fsTitle}>LOGIN</h2>
           <br />
-          <div className={styles.fieldGroup} >
+          <div className={styles.fieldGroup}>
             <div className={styles.inputGroup}>
               <label htmlFor="email">Email</label>
               <input
@@ -96,24 +80,30 @@ const Login = () => {
                 placeholder="Email"
                 onChange={handleChange}
                 value={userData.email}
-              />
+                style={errors.email ? { border: '1px solid red' } :  { border: '1px solid grey' }}
+                />
             </div>
             <div className={styles.errorContainer}>
               <span>{errors.email}</span>
             </div>
           </div>
+
+          <div className={styles.divider}></div>
+
           <div className={styles.fieldGroup}>
-            <div className={styles.inputGroup}>
-              <label htmlFor="password">Password</label> 
+            <div className={styles.inputGroup}  style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems:'baseline', width:'500px'}}>
+                 <label htmlFor="password">Password</label>
               <div className={styles.passwordContainer}>
- <input
+                <input
                   type={showPwd ? "text" : "password"}
                   name="password"
                   placeholder="Password"
                   onChange={handleChange}
                   value={userData.password}
+                  style={errors.password ? { border: '1px solid red' } :  { border: '1px solid grey' }}
                 />
-  <div
+                <div
                   onClick={() => setShowPwd(!showPwd)}
                   className={styles.eyeIconContainer}
                 >
@@ -144,42 +134,33 @@ const Login = () => {
                     </svg>
                   )}
                 </div>
-<div/>
+                <div />
+              </div>
+              </div>
              
-               
-              
 
-              {/* <div className={styles.passwordContainer}>
-                <input
-                  type={showPwd ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
-                  onChange={handleChange}
-                  value={userData.password}
-                />
-                <span
-                  className={styles.eyeIcon}
-                  onClick={() => setShowPwd(!showPwd)}
-                >
-                  {showPwd ? "👁️" : "👁️"}
-                </span>
-              </div> */}
+              <div className={styles.errorContainer}>
+                <span>{errors.password}</span>
+              </div>
             </div>
-            <div className={styles.errorContainer}>
-              <span>{errors.password}</span>
-            </div>
+            <div className={styles.divider}></div>
+
           </div>
+
+          <div>
+            <a
+              href=""
+              className={styles.forgotPsw}
+              onClick={() => {
+                alert("recuperacion de cnt");
+              }}
+            >
+              Forgot you password?
+            </a>
           </div>
-          <a
-            href="/"
-            className={styles.forgotPsw}
-            onClick={() => {
-              alert("recuperacion de cnt");
-            }}
-          >
-            Forgot you password?
-          </a>
-          <div style={{ margin: -5 }}>
+
+          <br />
+          <div className={styles.bothButtons}>
             <button
               className={styles.buttonLogIn}
               type="submit"

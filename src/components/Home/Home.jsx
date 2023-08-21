@@ -2,9 +2,9 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Header from '../Header/Header'
 import Mision from '../Mision/Mision'
-import Abaut from '../Abaut/Abaut'
 import Testimonials from '../Testimonials/Testimonials'
 import Footer from '../Footer/Footer'
+import About from '../About/About'
 
 const Home = () => {
     return (
@@ -12,7 +12,7 @@ const Home = () => {
             <Navbar />
             <Header />
             <Mision />
-            <Abaut />
+            <About />
             <Testimonials />
             <Footer />
         </>
