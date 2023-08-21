@@ -1,7 +1,6 @@
 /*custom font*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
-/*basic reset*/
 * {margin: 0; padding: 0;}
 
 .loginContainer {
@@ -13,44 +12,44 @@
     align-items: flex-start;
   
 }
-.fieldGroup {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-  }
-  
+
   .inputGroup {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
   }
+
   
   .errorContainer {
 	height: 30px;
-	display: flex;
-	align-items: center;
-	margin-left: 10px; /* Espacio entre el input y el mensaje de error */
-  }
+margin: 0;text-align: center;  }
 
 
   
 
-.msform {
-	width: 40%;
-	margin: 50px auto;
-	text-align: center;
-	/* position: relative; */
-}
+  .msform {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	
+  }
 
 .msform fieldset {
-	background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+	
+	background:rgb(170 166 166 / 80%);
 	border: 0 none;
-	border-radius: 10px; /* Rounded corners */
+	border-radius: 10px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	padding: 20px 30px;
 	box-sizing: border-box;
 	width: 100%;
 	margin:0;
+	
+}
+
+.msform input{
+	padding: 10px 60px;
 }
 
 .sigIn{
@@ -58,23 +57,28 @@
 	color: black;
 }
 
-/* Hide all except first fieldset */
 .msform fieldset:not(:first-of-type) {
 	display: none;
 }
 
-/*inputs*/
-.msform input, #msform textarea {
-	padding: 15px;
+.msform input, .msform textarea {
 	border: 1px solid #ccc;
 	border-radius: 3px;
+	max-width: 300px;
 	width: 100%;
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
 	font-size: 13px;
-}
+	padding: 10px; 
+	margin-bottom: 10px;
+position: relative; }
 
+.inputGroup input::placeholder {
+	text-align: left;
+	direction: rtl;
+  }
+  
 
 .passwordContainer, .emailContainer{
 	display: flex;
@@ -84,44 +88,66 @@
 /*buttons*/
 .msform button {
 	width: 100px;
-	background: #27AE60;
+	background: white;
 	font-weight: bold;
-	color: white;
+	color: black;
 	border: 0 none;
 	border-radius: 1px;
 	cursor: pointer;
 	padding: 10px 5px;
 	margin: 10px 5px;
-	transition: background-color 0.3s ease; /* Smooth color transition */
-}
+	transition: background-color 0.3s ease; }
 
 .msform .buttonSigIn:hover, #msform .buttonSigIn:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-	background: #24A155; 
+
+	background: black;
+	color: white; 
 }
-/* Estilos para el botón habilitado */
 .buttonLogIn:enabled {
-	background-color: #27AE60; /* Color de fondo verde */
-	color: white; /* Texto en color blanco */
+	background: black;
+	color: white; 
   }
   
   /* Estilos para el botón deshabilitado */
   .buttonLogIn:disabled {
-	background-color: #CCCCCC; /* Color de fondo gris claro */
-	color: #666666; /* Texto en color gris más oscuro */
+	background-color: #CCCCCC; 
+	color: #969393; /* Texto en color gris más oscuro */
   }
   
 
 /*headings*/
 .fsTitle {
 	font-size: 25px;
-	text-transform: uppercase;
+font-weight: bold;	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
+	text-align: center;
 }
 
+.forgotPsw{
+	color: black;
+	text-decoration: none;
+	font-weight: bolder;
+	text-align: center;
+}
+
+.passwordContainer{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.eyeIconContainer {
+	position: absolute;
+	right: 10px; 
+top: 9px;
+	cursor: pointer; 
+  } 
 
 
-
-
-
+  /* .inputShowPsw{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+  } */
