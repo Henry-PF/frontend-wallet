@@ -4,6 +4,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import { Route, Routes } from 'react-router-dom';
 import Login from './components/Login/Login';
+import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/RecoverPassword' element={<RecoverPassword/>} />
         </Routes>
     </div>
   );

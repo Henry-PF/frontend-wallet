@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 // import axios from 'axios';
 
@@ -173,11 +173,8 @@ const Login = () => {
           <a
             href="/"
             className={styles.forgotPsw}
-            onClick={() => {
-              alert("recuperacion de cnt");
-            }}
-          >
-            Forgot you password?
+          > 
+          <NavLink to={"/RecoverPassword"}>Forgot you password?</NavLink>
           </a>
           <div style={{ margin: -5 }}>
             <button
