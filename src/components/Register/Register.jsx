@@ -12,7 +12,7 @@ const Register = () => {
   const {values, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
 
   // Valores iniciales que vamos a tener en nuestro formulario
-  initialValues: {name:"",email:"",password:"", file:null},
+  initialValues: {name:"", surname:"", email:"", dni:"", address:"", phone:"", picfile:null, idpic1:null, idpic2:null},
   // Esquema de validaciones, que declaramos e importamos
   validationSchema: validations,
   // Funcion onSubmit que tomara el lugar en cualquier handleSubmit
@@ -32,7 +32,7 @@ const Register = () => {
                     
                 <div className="row align-items-center pt-3 pb-2 fieldStyle">
                       <div className="col-md-3 ps-5">
-                        <h6 className="tagStyle">Nombre Completo</h6>
+                        <h6 className="tagStyle">Nombre</h6>
                       </div>
 
                     <div className="col-md-9 pe-5">
@@ -42,6 +42,57 @@ const Register = () => {
                         <div className="errorContainer">{errors.name && touched.name && <p className='errorText'>{errors.name}</p>}</div>
                     </div>
                 </div>
+
+
+            <hr className="mx-n3" />
+
+
+                <div className="row align-items-center pt-3 pb-2 fieldStyle">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="tagStyle">Apellido</h6>
+                      </div>
+
+                    <div className="col-md-9 pe-5">
+                        <input type="text" id='surname' name="surname" onChange={handleChange}  value={values.surname}  
+                        placeholder="Su apellido aquí" onBlur={handleBlur}
+                        className={"form-control form-control-lg inputStyle" + (errors.surname && touched.surname ? " inputError" : "")}/>
+                        <div className="errorContainer">{errors.surname && touched.surname && <p className='errorText'>{errors.surname}</p>}</div>
+                    </div>
+                </div>
+
+
+            <hr className="mx-n3" />
+
+
+            <div className="row align-items-center pt-3 pb-2 fieldStyle">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="tagStyle">DNI</h6>
+                      </div>
+
+                    <div className="col-md-9 pe-5">
+                        <input type="text" id='dni' name="dni" onChange={handleChange}  value={values.dni}  
+                        placeholder="Su DNI aquí" onBlur={handleBlur}
+                        className={"form-control form-control-lg inputStyle" + (errors.dni && touched.dni ? " inputError" : "")}/>
+                        <div className="errorContainer">{errors.dni && touched.dni && <p className='errorText'>{errors.dni}</p>}</div>
+                    </div>
+                </div>
+
+
+           <hr className="mx-n3" />
+
+
+              <div className="row align-items-center pt-3 pb-2 fieldStyle">
+                        <div className="col-md-3 ps-5">
+                          <h6 className="tagStyle">Direccion</h6>
+                        </div>
+
+                      <div className="col-md-9 pe-5">
+                          <input type="text" id='address' name="address" onChange={handleChange}  value={values.address}  
+                          placeholder="Su dirección aquí" onBlur={handleBlur}
+                          className={"form-control form-control-lg inputStyle" + (errors.address && touched.address ? " inputError" : "")}/>
+                          <div className="errorContainer">{errors.address && touched.address && <p className='errorText'>{errors.address}</p>}</div>
+                      </div>
+                  </div>
 
 
             <hr className="mx-n3" />
@@ -67,14 +118,14 @@ const Register = () => {
 
             <div className="row align-items-center pt-4 pb-3 fieldStyle">
                       <div className="col-md-3 ps-5">
-                        <h6 className="tagStyle">Contraseña</h6>
+                        <h6 className="tagStyle">Teléfono</h6>
                       </div>
 
                     <div className="col-md-9 pe-5">
-                        <input type="password" id='password' name="password" onChange={handleChange}  
-                        value={values.password}  placeholder="Su contraseña aquí" onBlur={handleBlur}
-                        className={"form-control form-control-lg   inputStyle" + (errors.password && touched.password ? " inputError" : "")}/>
-                        <div className="errorContainer">{errors.password && touched.password && <p className='errorText'>{errors.password}</p>}</div>
+                        <input type="text" id='phone' name="phone" onChange={handleChange}  
+                        value={values.phone}  placeholder="Su teléfono aquí" onBlur={handleBlur}
+                        className={"form-control form-control-lg   inputStyle" + (errors.phone && touched.phone ? " inputError" : "")}/>
+                        <div className="errorContainer">{errors.phone && touched.phone && <p className='errorText'>{errors.phone}</p>}</div>
                     </div>
                 </div>
 
