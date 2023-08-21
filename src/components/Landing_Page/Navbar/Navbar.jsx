@@ -13,13 +13,13 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse justify-content-end me-5" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="nav-item mx-2">
-                            <a className="nav-link" aria-current="page" href="">Home</a>
+                            <a className="nav-link" aria-current="page" href="/">Home</a>
                         </li>
                         <li className="nav-item mx-2">
-                            <a className="nav-link" href="">Abaut Us</a>
+                            <a className="nav-link" href="">About Us</a>
                         </li>
                         <li className="nav-item mx-2">
-                            <Link className="nav-link" to='/dashboard'>Log in</Link>
+                            <Link className="nav-link" to='/login'>Log in</Link>
                         </li>
                     </ul>
                 </div>
