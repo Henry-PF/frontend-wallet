@@ -1,0 +1,95 @@
+.formContainer{
+  background-image: url('/public/bgImage.jpg');;
+  background-size: cover;
+  background-attachment: fixed; 
+  
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+
+  font-family: 'Rajdhani', sans-serif;
+}
+
+
+.inputContainer{
+  width: 47rem;
+}
+
+.card {
+  border-radius: 25px;
+}
+
+
+.fieldStyle{
+  display: flex;
+  font-size: 54rem;
+  align-items: center;
+}
+
+.tagStyle{
+  font-size: 1.2rem;
+}
+
+.inputStyle{
+  font-size: 1.1rem;
+}
+
+.inputError{
+  border-color: red;
+}
+
+.errorText{
+  font-size: 1.1rem;
+  color: red;
+}
+
+.errorContainer {
+  height: 1.1rem; /* Ajusta la altura según tus preferencias */
+}
+
+.linksReg{
+  color: rgb(11, 81, 230);
+  text-decoration: none;
+}
+
+.submitButton{
+  align-items: center;
+}
+
+
+
+
+@media (max-width:720px) {
+  .formContainer{
+    padding: 5rem;
+  }
+
+  .inputContainer{
+    width: auto;
+  }
+
+  .tagStyle{
+    white-space:unset;
+  }
+
+  .inputStyle{
+    display: block;
+  }
+
+  .submitButton{
+    font-size: 12px; /* Disminuye el tamaño de la fuente */
+    padding: 5px 10px; /* Disminuye el padding */
+    align-items: center;
+  }
+}
+
+
+  
+
+  
+
+
+
+  
+
+  
+
