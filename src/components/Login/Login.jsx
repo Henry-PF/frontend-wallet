@@ -68,7 +68,7 @@ const Login = () => {
     <div className={styles.loginContainer}>
       <Navbar />
       <form id="msform" className={styles.msform} onSubmit={handleSubmit}>
-        <fieldset className="container-fluid">
+        <fieldset>
           <h2 className={styles.fsTitle}>LOGIN</h2>
           <br />
           <div className={styles.fieldGroup}>
