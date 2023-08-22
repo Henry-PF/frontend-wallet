@@ -2,17 +2,19 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Header from '../Header/Header'
 import Mision from '../Mision/Mision'
-import Abaut from '../Abaut/Abaut'
+import About from '../About/About'
 import Testimonials from '../Testimonials/Testimonials'
 import Footer from '../Footer/Footer'
+import Services from '../Services/Services'
 
 const Home = () => {
-    return (
+    return (   
         <>
-            <Navbar />
+            <Navbar/>
             <Header />
             <Mision />
-            <Abaut />
+            <About />
+            <Services/>
             <Testimonials />
             <Footer />
         </>

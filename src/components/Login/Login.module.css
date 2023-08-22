@@ -1,0 +1,153 @@
+/*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+* {margin: 0; padding: 0;}
+
+.loginContainer {
+	height: 100vh;
+	background: black;
+    display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  
+}
+
+  .inputGroup {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+  }
+
+  
+  .errorContainer {
+	height: 30px;
+margin: 0;text-align: center;  }
+
+
+  
+
+  .msform {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	
+  }
+
+.msform fieldset {
+	
+	background:rgb(170 166 166 / 80%);
+	border: 0 none;
+	border-radius: 10px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 100%;
+	margin:0;
+	
+}
+
+.msform input{
+	padding: 10px 60px;
+}
+
+.sigIn{
+	text-decoration: none;
+	color: black;
+}
+
+.msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+.msform input, .msform textarea {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	max-width: 300px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+	padding: 10px; 
+	margin-bottom: 10px;
+position: relative; }
+
+.inputGroup input::placeholder {
+	text-align: left;
+	direction: rtl;
+  }
+  
+
+.passwordContainer, .emailContainer{
+	display: flex;
+	align-items: center;
+}
+
+/*buttons*/
+.msform button {
+	width: 100px;
+	background: white;
+	font-weight: bold;
+	color: black;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+	transition: background-color 0.3s ease; }
+
+.msform .buttonSigIn:hover, #msform .buttonSigIn:focus {
+
+	background: black;
+	color: white; 
+}
+.buttonLogIn:enabled {
+	background: black;
+	color: white; 
+  }
+  
+  /* Estilos para el botón deshabilitado */
+  .buttonLogIn:disabled {
+	background-color: #CCCCCC; 
+	color: #969393; /* Texto en color gris más oscuro */
+  }
+  
+
+/*headings*/
+.fsTitle {
+	font-size: 25px;
+font-weight: bold;	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.forgotPsw{
+	color: black;
+	text-decoration: none;
+	font-weight: bolder;
+	text-align: center;
+}
+
+.passwordContainer{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.eyeIconContainer {
+	position: absolute;
+	right: 10px; 
+top: 9px;
+	cursor: pointer; 
+  } 
+
+
+  /* .inputShowPsw{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+  } */
