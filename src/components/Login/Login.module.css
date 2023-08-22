@@ -1,4 +1,3 @@
-/*custom font*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 * {margin: 0; padding: 0;}
@@ -8,48 +7,59 @@
 	background: black;
     display: flex;
 	flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
   
 }
-
-  .inputGroup {
-	flex: 1;
+.fieldGroup{
 	display: flex;
+	align-items: center;
 	flex-direction: column;
+}
+  .inputGroup {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 500px;
   }
 
   
   .errorContainer {
-	height: 30px;
+	height: 6px;
 margin: 0;text-align: center;  }
 
 
   
 
   .msform {
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #fff;
+	margin: auto;
+	color: white;
+	
 	
   }
 
 .msform fieldset {
 	
-	background:rgb(170 166 166 / 80%);
+	background: white;
 	border: 0 none;
 	border-radius: 10px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	padding: 20px 30px;
 	box-sizing: border-box;
-	width: 100%;
+	max-width: 600px;
+	/* width: 100%; */
 	margin:0;
 	
 }
 
 .msform input{
 	padding: 10px 60px;
+	width: 100%;
+
+}
+.msform label{
+	color: grey;
+	font-weight: bolder;
 }
 
 .sigIn{
@@ -61,11 +71,10 @@ margin: 0;text-align: center;  }
 	display: none;
 }
 
-.msform input, .msform textarea {
+.msform input {
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	max-width: 300px;
-	width: 100%;
+	width: 400px;
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
@@ -85,7 +94,6 @@ position: relative; }
 	align-items: center;
 }
 
-/*buttons*/
 .msform button {
 	width: 100px;
 	background: white;
@@ -104,18 +112,18 @@ position: relative; }
 	color: white; 
 }
 .buttonLogIn:enabled {
+	
 	background: black;
 	color: white; 
+	transition: background-color 2s, color 2s; /* Definimos la transición para ambos atributos */
   }
   
-  /* Estilos para el botón deshabilitado */
   .buttonLogIn:disabled {
 	background-color: #CCCCCC; 
-	color: #969393; /* Texto en color gris más oscuro */
+	color: #969393; 
   }
   
 
-/*headings*/
 .fsTitle {
 	font-size: 25px;
 font-weight: bold;	text-transform: uppercase;
@@ -123,12 +131,19 @@ font-weight: bold;	text-transform: uppercase;
 	margin-bottom: 10px;
 	text-align: center;
 }
+.divider {
+	width: 100%;
+	height: 1px;
+	background-color: #e1dbdb; 
+	margin: 20px 0; 
+  }
+  
 
 .forgotPsw{
 	color: black;
 	text-decoration: none;
 	font-weight: bolder;
-	text-align: center;
+	font-size: 13px;
 }
 
 .passwordContainer{
@@ -142,12 +157,17 @@ font-weight: bold;	text-transform: uppercase;
 	right: 10px; 
 top: 9px;
 	cursor: pointer; 
+	color: rgb(108, 105, 105);
   } 
-
-
-  /* .inputShowPsw{
+  .bothButtons{
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-  } */
+	justify-content: center;
+	margin-top: 5px;
+  }
+
+span{
+	color:red ;
+	font-weight: bolder;
+	font-size: 12px;
+	margin-left: 100px;
+}
