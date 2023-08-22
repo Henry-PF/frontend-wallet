@@ -6,12 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/App.css';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
-<<<<<<< HEAD
 // import About from './components/About/About';
 import About from './components/Landing_Page/About/About';
-=======
-
->>>>>>> 59f47cdd00040acfd78b2e8657dcf16ccff7d0d7
 
 function App(props) {
   return (
