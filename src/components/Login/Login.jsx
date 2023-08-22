@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Landing_Page/Navbar/Navbar";
 // import axios from 'axios';
 
 const Login = () => {
@@ -190,15 +190,7 @@ const Login = () => {
             >
               SIGN IN
             </button>
-            <button
-              className={styles.buttonSigIn}
-              type="button"
-              onClick={() => {
-                alert("vamos a registrarnos!");
-              }}
-            >
-              SIGN UP
-            </button>
+            <a className={styles.buttonSigIn} href="/register">SIGN UP</a>
           </div>
         </fieldset>
       </form>

@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from '../../../assets/logo_wallet.jpg'
-import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -13,13 +12,13 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse justify-content-end me-5" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="nav-item mx-2">
-                            <a className="nav-link" aria-current="page" href="/">Home</a>
+                            <a className="nav-link" aria-current="page" href="/">Inicio</a>
                         </li>
                         <li className="nav-item mx-2">
-                            <a className="nav-link" href="/">About Us</a>
+                            <a className="nav-link" href="/">Conocenos</a>
                         </li>
                         <li className="nav-item mx-2">
-                            <a className="nav-link" href="/login">Login</a>
+                            <a className="nav-link" href="/login">Iniciar</a>
                         </li>
                     </ul>
                 </div>
