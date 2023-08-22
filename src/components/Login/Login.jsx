@@ -176,15 +176,12 @@ const Login = () => {
             >
               Ingresa
             </button>
-            <button
+            <a
+              href="/register"
               className={styles.buttonLogIn}
-              type="button"
-              onClick={() => {
-                alert("vamos a registrarnos!");
-              }}
             >
               Registrate
-            </button>
+            </a>
 
         
           </div>
