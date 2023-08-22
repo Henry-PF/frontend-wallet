@@ -2,7 +2,7 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../Landing_Page/Navbar/Navbar';
 const RecoverPassword = () => {
     
     const [errors, setErrors] = React.useState({});
