@@ -1,7 +1,8 @@
 import './RegisterStyles.css'; // Importa el archivo de estilos
 import { useFormik } from 'formik';     // Metodos de formik
 import validations from "./validations"  // Validaciones
-
+import Navbar from '../Landing_Page/Navbar/Navbar'
+import Footer from '../Landing_Page/Footer/Footer'
 
 const Register = () => {
 
@@ -20,6 +21,8 @@ const Register = () => {
 
     return (
       <div>
+        <Navbar/>
+
           
         <form onSubmit={handleSubmit} className='formStyles'>
           <h1>Únase a SmartPay</h1>
@@ -196,6 +199,7 @@ const Register = () => {
                 </div>
               </div>
         </form>
+        <Footer />
       </div>
     );
   }
