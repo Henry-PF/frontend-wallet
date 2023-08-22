@@ -18,7 +18,7 @@ const Navbar = () => {
                             <a className="nav-link" href="/">Conocenos</a>
                         </li>
                         <li className="nav-item mx-2">
-                            <a className="nav-link" href="/login">Iniciar</a>
+                            <a className="nav-link" href="/login">Iniciar Sesion</a>
                         </li>
                     </ul>
                 </div>
