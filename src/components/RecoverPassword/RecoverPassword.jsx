@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../Landing_Page/Navbar/Navbar';
+import Footer from '../Landing_Page/Footer/Footer';
 const RecoverPassword = () => {
     
     const [errors, setErrors] = React.useState({});
@@ -35,7 +36,7 @@ const RecoverPassword = () => {
         const sendLinkHandler = () => { alert("Funcion de recuperacion de contraseña"); }
     return (
         <>
-            <Navbar></Navbar>
+            <Navbar />
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <section className='d-flex justify-content-center' >
                 <div className='card col-sm-31 p-5'>
@@ -60,6 +61,7 @@ const RecoverPassword = () => {
                 </div>
 
             </section>
+            <Footer />
         </>
     )
 }

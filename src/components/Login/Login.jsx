@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Landing_Page/Navbar/Navbar";
+import Footer from "../Landing_Page/Footer/Footer";
 // import axios from 'axios';
 
 const Login = () => {
@@ -173,6 +174,7 @@ const Login = () => {
           </div>
         </fieldset>
       </form>
+      <Footer />
     </div>
   );
 };

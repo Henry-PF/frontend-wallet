@@ -22,8 +22,6 @@ const Register = () => {
     return (
       <div>
         <Navbar/>
-
-          
         <form onSubmit={handleSubmit} className='formStyles'>
           <h1>Únase a SmartPay</h1>
 
