@@ -5,6 +5,8 @@ import Transferencias from './components/User_Panel/Transferencias/Transferencia
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/App.css';
 import Register from './components/Register/Register';
+import Login from './components/Login/Login';
+import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 
 
 function App(props) {
@@ -15,6 +17,8 @@ function App(props) {
         <Route exact path='/dashboard' element={<UserHome />} />
         <Route exact path='/dashboard/transferencia' element={<Transferencias />} />
         <Route exact path='/register' element={<Register />} />
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/recoverPassword' element={<RecoverPassword/>} />
       </Routes>
     </div>
   );
