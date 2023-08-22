@@ -39,7 +39,7 @@
 }
 
 .errorContainer {
-  height: 1.1rem; /* Ajusta la altura según tus preferencias */
+  height: 1.1rem; 
 }
 
 .linksReg{
@@ -72,8 +72,8 @@
   }
 
   .submitButton{
-    font-size: 12px; /* Disminuye el tamaño de la fuente */
-    padding: 5px 10px; /* Disminuye el padding */
+    font-size: 12px; 
+    padding: 5px 10px; 
     align-items: center;
   }
 }
