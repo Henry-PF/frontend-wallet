@@ -20,16 +20,16 @@ const Register = () => {
 
     return (
       <div>
+          
+        <form onSubmit={handleSubmit} className='formStyles'>
+          <h1>Únase a SmartPay</h1>
 
-        <form onSubmit={handleSubmit} className='formContainer'>
 
-          <div className="container inputContainer">
-                <h1 className="text-white mb-3">Únase a SmartPay</h1>
-                <div className="card">
+            <div className="container">
+                <div className="card cardStyles">
                   <div className="card-body">
                     
-                    
-                    
+        
                 <div className="row align-items-center pt-3 pb-2 fieldStyle">
                       <div className="col-md-3 ps-5">
                         <h6 className="tagStyle">Nombre</h6>
@@ -188,7 +188,7 @@ const Register = () => {
                 </div>
 
                 <div className='login'>
-                  <h5 className='tagStyle'>Ya eres miembro? <a className='linksReg' href="/rutaLogin">Inicia sesión</a></h5>
+                  <h5 className='tagStyle'>Ya eres miembro?<a className='linksReg' href="/login">Inicia sesión</a></h5>
                 </div>
 
                   

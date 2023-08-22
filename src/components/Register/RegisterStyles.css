@@ -1,28 +1,24 @@
-.formContainer{
+.formStyles{
   background-image: url('/public/bgImage.jpg');;
   background-size: cover;
   background-attachment: fixed; 
   
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  text-align: center;
+
   padding-top: 1.5rem;
   padding-bottom: 1rem;
-
-  font-family: 'Rajdhani', sans-serif;
 }
 
-
-.inputContainer{
-  width: 47rem;
-}
-
-.card {
-  border-radius: 25px;
-}
-
-
-.fieldStyle{
+.container{
   display: flex;
-  font-size: 54rem;
-  align-items: center;
+  justify-content: center;
+}
+
+.cardStyles{
+  display: flex;
+  border-radius: 25px;
 }
 
 .tagStyle{
