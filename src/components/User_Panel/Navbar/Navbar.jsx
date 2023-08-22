@@ -1,23 +1,24 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <>
-      <nav className='w-auto' >
+      <nav className='w-auto' > 
         <ul className="nav w-100 flex-column justif-content-center">
-          <li className="nav-item sidebar-item py-2 w-auto">
+          <NavLink  className="text-decoration-none" to={"/dashboard"}> <li className="nav-item sidebar-item py-2 w-auto">
             <a className="nav-link" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-columns-gap" viewBox="0 0 16 16">
                 <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z" />
-              </svg> Dashboard</a>
-          </li>
-          <li className="nav-item sidebar-item py-2">
+              </svg>  Dashboard </a>
+          </li> </NavLink> 
+          <NavLink className="text-decoration-none" to={"/mi_billetera"}><li className="nav-item sidebar-item py-2">
             <a className="nav-link" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-wallet2" viewBox="0 0 16 16">
                 <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
               </svg> Mi Billetera
-            </a>
-          </li>
+            </a> 
+          </li> </NavLink>
           <li className="nav-item sidebar-item py-2">
             <a className="nav-link" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-arrow-repeat" viewBox="0 0 16 16">
