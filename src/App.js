@@ -18,7 +18,7 @@ function App(props) {
         <Route exact path='/dashboard/transferencia' element={<Transferencias />} />
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/login' element={<Login />} />
-        <Route path='/recoverPassword' element={<RecoverPassword/>} />
+        <Route exact path='/recoverPassword' element={<RecoverPassword/>} />
       </Routes>
     </div>
   );
