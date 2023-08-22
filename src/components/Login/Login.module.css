@@ -111,6 +111,9 @@ position: relative; }
 	background: black;
 	color: white; 
 }
+.buttonSigIn a{
+	text-decoration: none;
+}
 .buttonLogIn:enabled {
 	
 	background: black;
@@ -162,6 +165,7 @@ top: 9px;
   .bothButtons{
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	margin-top: 5px;
   }
 

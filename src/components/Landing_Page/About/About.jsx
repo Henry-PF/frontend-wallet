@@ -20,7 +20,7 @@ const About = () => {
                         SmartPay es una innovadora billetera digital diseñada para simplificar y mejorar la forma en que las personas gestionan sus transacciones financieras. Con un enfoque en la comodidad, la seguridad y la inteligencia, SmartPay transforma la experiencia de pago y la administración financiera en una experiencia sin esfuerzo.
                     </article>
                 </div>
-                <div className='d-flex align-items-center justify-content-center flex-column w-100 bg-secondary'>
+                <div className='d-flex align-items-center justify-content-center flex-column w-100' style={{background:'white'}}>
                     <div className='container text-center mt-5 pt-5'>
                         <h1 className=''>Pago Inteligente y Conveniente</h1>
                     </div>
@@ -48,7 +48,7 @@ const About = () => {
                         </article>
                     </div>
                 </div>
-                <div className='d-flex align-items-center justify-content-center flex-column w-100 bg-secondary'>
+                <div className='d-flex align-items-center justify-content-center flex-column w-100' style={{background:'white'}}>
                     <div className='container text-center mt-5 pt-5'>
                         <h1 className=''>Seguridad de Vanguardia</h1>
                     </div>
