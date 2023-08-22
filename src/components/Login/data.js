@@ -2,7 +2,7 @@ const simulatedDatabase =
     {
       email: 'usuario1@example.com',
       name: 'Usuario Uno',
-      password: 'Contraseña123!',
+      password: 'Password123',
     }
 
       export default simulatedDatabase;

@@ -24,14 +24,14 @@
     border-radius: 0;
     padding: 0;
     margin: 0;
-    width: 100%;
-    border: none;
+max-width: 500px;    border: none;
 
 }
 .cardRow {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centrar horizontalmente las tarjetas */
+    justify-content: center; 
+    width: 100%;
   }
   .cardCol {
     display: flex;

@@ -7,7 +7,7 @@ import './assets/App.css';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
-
+import About from './components/Landing_Page/About/About';
 
 function App(props) {
   return (

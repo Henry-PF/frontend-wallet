@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Landing_Page/Navbar/Navbar";
 import Footer from "../Landing_Page/Footer/Footer";
 // import axios from 'axios';
+import simulatedDatabase from "./data";
 
 const Login = () => {
   const [errors, setErrors] = useState({});
@@ -34,7 +35,7 @@ const Login = () => {
     } else if (!userData.password) {
       errors.password = "no puede estar vacio";
     } else if (!regexPassword.test(userData.password)) {
-      errors.password = "debe ser una password valida";
+      errors.password = "debe ser una contraseña valida";
     }
 
     setErrors(errors);
@@ -57,10 +58,19 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (access) {
-      navigate("/");
+    const emailInput = userData.email
+    const passwordInput = userData.password
+  
+    if (emailInput === simulatedDatabase.email && passwordInput === simulatedDatabase.password) {
+      // Credenciales correctas, redirigir a /dashboard
+      navigate( '/dashboard');
+    } else {
+      alert('Credenciales incorrectas. Inténtalo de nuevo.');
     }
+
+    // if (access) {
+    //   navigate("/");
+    // }
   };
 
 
@@ -71,7 +81,7 @@ const Login = () => {
       <Navbar />
       <form id="msform" className={styles.msform} onSubmit={handleSubmit}>
         <fieldset>
-          <h2 className={styles.fsTitle}>LOGIN</h2>
+          <h2 className={styles.fsTitle}>Inicia Sesion</h2>
           <br />
           <div className={styles.fieldGroup}>
             <div className={styles.inputGroup}>
@@ -95,12 +105,12 @@ const Login = () => {
           <div className={styles.fieldGroup}>
             <div className={styles.inputGroup}  style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems:'baseline', width:'500px'}}>
-                 <label htmlFor="password">Password</label>
+                 <label htmlFor="password">Contraseña</label>
               <div className={styles.passwordContainer}>
                 <input
                   type={showPwd ? "text" : "password"}
                   name="password"
-                  placeholder="Password"
+                  placeholder="Contraseña"
                   onChange={handleChange}
                   value={userData.password}
                   style={errors.password ? { border: '1px solid red' } :  { border: '1px solid grey' }}
@@ -153,9 +163,7 @@ const Login = () => {
             <a
               href="/recoverPassword"
               className={styles.forgotPsw}
-            >
-              Forgot you password?
-            </a>
+            >Olvidaste tu contraseña?</a>
           </div>
 
           <br />
@@ -164,13 +172,21 @@ const Login = () => {
               className={styles.buttonLogIn}
               type="submit"
               disabled={!access}
+             
+            >
+              Ingresa
+            </button>
+            <button
+              className={styles.buttonLogIn}
+              type="button"
               onClick={() => {
-                alert("vamos al panel del usuario!");
+                alert("vamos a registrarnos!");
               }}
             >
-              SIGN IN
+              Registrate
             </button>
-            <a className={styles.buttonSigIn} href="/register">SIGN UP</a>
+
+        
           </div>
         </fieldset>
       </form>
