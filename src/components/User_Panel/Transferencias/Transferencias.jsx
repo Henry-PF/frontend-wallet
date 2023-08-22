@@ -1,5 +1,5 @@
 import './TransferenciasStyles.css'; 
-import Navbar from '../../User_Panel/Navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
 
 
 const Transferencias = () =>{
