@@ -76,7 +76,7 @@ return(
         <p>Completada<button className='buttonStyles'>&#x205E;</button></p>
         <p>Completada<button className='buttonStyles'>&#x205E;</button></p>
         <p>Completada<button className='buttonStyles'>&#x205E;</button></p>
-        <p>Completada<button className='buttonStyles'>&#x205E;</button></p>
+        <p>Rechazada<button className='buttonStyles'>&#x205E;</button></p>
         </div>
       </div>
     </div>
