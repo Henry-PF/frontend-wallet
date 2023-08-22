@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Login.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../Landing_Page/Navbar/Navbar";
 // import axios from 'axios';
 
 const Login = () => {
@@ -174,7 +174,7 @@ const Login = () => {
             href="/"
             className={styles.forgotPsw}
           > 
-          <NavLink to={"/RecoverPassword"}>Forgot you password?</NavLink>
+          <a href="/recoverPassword">Forgot you password?</a>
           </a>
           <div style={{ margin: -5 }}>
             <button
@@ -187,15 +187,7 @@ const Login = () => {
             >
               SIGN IN
             </button>
-            <button
-              className={styles.buttonSigIn}
-              type="button"
-              onClick={() => {
-                alert("vamos a registrarnos!");
-              }}
-            >
-              SIGN UP
-            </button>
+            <a className={styles.buttonSigIn} href="/register">SIGN UP</a>
           </div>
         </fieldset>
       </form>
