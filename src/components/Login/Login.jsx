@@ -150,11 +150,8 @@ const Login = () => {
 
           <div>
             <a
-              href=""
+              href="/recoverPassword"
               className={styles.forgotPsw}
-              onClick={() => {
-                alert("recuperacion de cnt");
-              }}
             >
               Forgot you password?
             </a>

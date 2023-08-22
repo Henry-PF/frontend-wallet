@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/App.css';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
-import About from './components/About/About';
 
 
 function App(props) {
