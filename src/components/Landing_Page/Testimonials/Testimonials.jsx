@@ -39,16 +39,15 @@ const TestimonialsCarousel = () => {
         <div className={styles.image}>
           <img src={testimony.image} alt={testimony.image} />
         </div>
-      
-        <h3 style={{fontSize:'12px', height:'80px'}}>{testimony.testimony}</h3>
-        <h2 style={{height:'30px', fontSize:'20px', fontWeight:'bolder'}}>{testimony.name}</h2>
+        <h3 style={{ fontSize: '12px', height: '80px' }}>{testimony.testimony}</h3>
+        <h2 style={{ height: '30px', fontSize: '20px', fontWeight: 'bolder' }}>{testimony.name}</h2>
       </Card>
     ));
   };
 
   return (
     <div className={styles.testimonialsContainer}>
-      <h2 style={{color:'black', fontWeight:'bolder'}}>TESTIMONIOS</h2>
+      <h2 style={{ color: 'black', fontWeight: 'bolder' }}>TESTIMONIOS</h2>
       <br />
       <Carousel
         activeIndex={activeGroup}
@@ -57,7 +56,7 @@ const TestimonialsCarousel = () => {
         wrap={true}
         variant='dark'
         className={styles.carousel}
-indicators={false}
+        indicators={false}
       >
         {Array.from({ length: totalGroups }).map((_, groupIndex) => (
           <Carousel.Item key={groupIndex}>
