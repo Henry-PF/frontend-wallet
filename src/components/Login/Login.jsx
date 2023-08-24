@@ -163,7 +163,8 @@ const Login = () => {
             <a
               href="/recoverPassword"
               className={styles.forgotPsw}
-            >Olvidaste tu contraseña?</a>
+            >
+Olvidaste tu contraseña?            </a>
           </div>
 
           <br />
@@ -176,18 +177,20 @@ const Login = () => {
             >
               Ingresa
             </button>
-            <a
-              href="/register"
+            <button
               className={styles.buttonLogIn}
+              type="button"
+              onClick={() => {
+                alert("vamos a registrarnos!");
+              }}
             >
               Registrate
-            </a>
+            </button>
 
         
           </div>
         </fieldset>
       </form>
-      <Footer />
     </div>
   );
 };
