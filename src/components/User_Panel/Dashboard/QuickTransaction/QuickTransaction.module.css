@@ -61,17 +61,41 @@ margin-bottom: 20px;  padding: 0;
   background-color: transparent;
   text-align: center;
 }
+/* TuArchivoDeEstilos.module.css */
+
+.errorInput {
+  border-color: red;
+  color: red;
+}
+
+.errorMessage {
+  color: red;
+}
+.inputError{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.selected {
+  background-color: black; 
+  color: white;
+}
+
 .buttonTransfer {
   width: 100px;
   margin: 0;
   padding: 0;
-  height: 45px;
+  height: 51px;
   border: none;
+}
+.buttonTransfer:hover{
+  background-color: black;
+  color: white;
 }
 
 .transferContainer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   margin-top: 20px;
 }
