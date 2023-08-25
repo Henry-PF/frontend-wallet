@@ -8,7 +8,6 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 import About from './components/Landing_Page/About/About';
-import Baja from './components/Baja/Baja';
 
 function App(props) {
   return (
@@ -20,7 +19,6 @@ function App(props) {
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/recoverPassword' element={<RecoverPassword/>} />
-        {/* <Route exact path='/unsubscribeUser' element={<Baja/>} /> */}
       </Routes>
     </div>
   );
