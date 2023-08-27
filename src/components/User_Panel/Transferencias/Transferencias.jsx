@@ -1,87 +1,111 @@
-import './TransferenciasStyles.css'; 
+import './TransferenciasStyles.css';
 import Navbar from '../Navbar/Navbar';
+import { Form } from 'react-bootstrap';
 
 
-const Transferencias = () =>{
-return(
-    <div>
-        <div className="global">
-            <Navbar/>
-
-
-        <div className="containerStyles">
-            <h2 className='title'> Historial de transacciones </h2>
-                
-
-        <div className='filters'>
-            <select className="form-select mb-3 selectStyles">
-                <option> &#128179; Card </option>
-                <option value="1">Mastercard</option>
-                <option value="2">Visa</option>
-                <option value="3">Banelco</option>
-            </select>
-
-            <select className="form-select mb-3 selectStyles">
-                <option> &#128198; Fecha </option>
-                <option value="1">1/01/2000</option>
-                <option value="2">2/01/2000</option>
-                <option value="3">3/01/2000</option>
-            </select>
-        </div>
-
-
-    <div className="section">
-
-        <div id="photos" className="column">
-            <img src="/user.png" alt="userPic" className="imgStyles"/> 
-            <img src="/user.png" alt="userPic" className="imgStyles"/> 
-            <img src="/user.png" alt="userPic" className="imgStyles"/>
-            <img src="/user.png" alt="userPic" className="imgStyles"/>          
-        </div>
-
-        <div className="column">
-            <p>ID</p>
-            <p>#1</p>
-            <p>#2</p>
-            <p>#3</p>
-            <p>#4</p>
-        </div>
-
-        <div className="column">
-            <p>Nombre</p>
-            <p>User 1</p>
-            <p>User 2</p>
-            <p>User 3</p>
-            <p>User 4</p>
-        </div>
-
-        <div className="column">
-            <p>Monto</p>
-            <p>100$</p>
-            <p>200$</p>
-            <p>300$</p>
-            <p>400$</p>
-        </div>
-
-        <div className="column">
-            <p>Fecha</p>
-            <p>01/01/2000</p>
-            <p>03/01/2000</p>
-            <p>02/01/2000</p>
-            <p>03/01/2000</p>
-        </div>
-
-        <div className="column">
-        <p>Estado</p>
-        <p>Completada<button className='buttonStyles'>&#x205E;</button></p>
-        <p>Completada<button className='buttonStyles'>&#x205E;</button></p>
-        <p>Completada<button className='buttonStyles'>&#x205E;</button></p>
-        <p>Rechazada<button className='buttonStyles'>&#x205E;</button></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>)
+const Transferencias = () => {
+    return (
+        <>
+            <section className=''>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-auto col-md-2 col-xl-2 d-flex align-items-center justify-content-center px-sm-2 px-0 min-vh-100 bg-dark" >
+                            <Navbar />
+                        </div>
+                        <div className="col bg-light">
+                            <h2>Historial de Transacciones</h2>
+                            <div className='row d-flex align-items-center justify-content-center w-100 my-5'>
+                                <div class="input-group rounded w-25">
+                                    <input type="search" class="form-control rounded" placeholder="Buscar..." aria-label="Search" aria-describedby="search-addon" />
+                                </div>
+                                <div class="dropdown-center w-auto">
+                                    <button class="btn border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Cards
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Action two</a></li>
+                                        <li><a class="dropdown-item" href="#">Action three</a></li>
+                                    </ul>
+                                </div>
+                                <div className='col-2'>
+                                    <div className="row">
+                                        <div className="col-md-4">
+                                            <Form.Group controlId="date">
+                                                <Form.Control type="date" name="date" placeholder="Fecha" />
+                                            </Form.Group>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Monto</th>
+                                        <th scope="col">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody className='overflow-scroll'>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark Otto</td>
+                                        <td>01/02/2023</td>
+                                        <td>$ 1,000</td>
+                                        <td className='text-success'>Completo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob Thornton</td>
+                                        <td>01/02/2023</td>
+                                        <td>$ 5,000</td>
+                                        <td className='text-danger'>Cancelado</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>02/02/2023</td>
+                                        <td>$ 3,000</td>
+                                        <td className='text-warning'>Pendiente</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>02/02/2023</td>
+                                        <td>$ 3,000</td>
+                                        <td>Pendiente</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>02/02/2023</td>
+                                        <td>$ 3,000</td>
+                                        <td>Pendiente</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>02/02/2023</td>
+                                        <td>$ 3,000</td>
+                                        <td>Pendiente</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>02/02/2023</td>
+                                        <td>$ 3,000</td>
+                                        <td>Pendiente</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section >
+        </>
+    )
 }
 
 export default Transferencias;
