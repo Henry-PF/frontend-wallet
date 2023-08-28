@@ -1,0 +1,33 @@
+.qrCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:1px solid white;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: rgb(54, 53, 53);
+}
+
+#qr{
+    width: 15rem;
+    height: 15rem;
+}
+
+#imgStyle{
+    width:100px; 
+    height:70px;
+    border-radius: 0.5rem; 
+    margin-top: 0%;
+    margin-bottom: 5%;
+}
+
+#backBut{
+    margin-top: 1rem;
+    background-color: black;
+    transition: background-color 0.s; 
+}
+
+#backBut:hover {
+    background-color: rgb(24, 23, 23); 
+}
