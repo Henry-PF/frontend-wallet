@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.908b6750.css",
+    "main.js": "/static/js/main.efcde40a.js",
+    "static/media/bgImage.jpg": "/static/media/bgImage.8511e4f1694a015872e2.jpg",
+    "static/media/mobile-wallet-banner-img.png": "/static/media/mobile-wallet-banner-img.4ef415f85792353fa6f0.png",
+    "static/media/paiment.png": "/static/media/paiment.e758cbb3eaf5576fb7d9.png",
+    "static/media/security.png": "/static/media/security.494643e033d1392e718a.png",
+    "static/media/global-payment.png": "/static/media/global-payment.2081acf17d69db44e01f.png",
+    "static/media/gestion.png": "/static/media/gestion.dc7baee5557fdfeedc20.png",
+    "index.html": "/index.html",
+    "main.908b6750.css.map": "/static/css/main.908b6750.css.map",
+    "main.efcde40a.js.map": "/static/js/main.efcde40a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.908b6750.css",
+    "static/js/main.efcde40a.js"
+  ]
+}
