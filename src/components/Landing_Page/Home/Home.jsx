@@ -6,8 +6,8 @@ import About from '../About/About'
 import Testimonials from '../Testimonials/Testimonials'
 import Footer from '../Footer/Footer'
 import Services from '../Services/Services'
-
 const Home = () => {
+    
     return (   
         <>
             <Navbar/>

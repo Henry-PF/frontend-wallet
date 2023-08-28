@@ -1,8 +1,17 @@
+import { useEffect } from 'react';
 import styles from './Services.module.css';
 import { Row, Col, Card, Button } from "react-bootstrap";
-import { financialProducts } from './data';
+import { useDispatch, connect } from "react-redux";
+import { getAllPlanes } from '../../../redux/actions';
 
-const Services = () => {
+const Services = (prop) => {
+   const financialProducts = prop.planes;
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+   dispatch(getAllPlanes()); 
+   },[]);
+   
     return (
       <div className={styles.servicesContainer}>
         <h2>Planes Premium</h2>
@@ -64,4 +73,7 @@ const Services = () => {
     );
   };
 
-export default Services
+  const mapStateToProps = (state) => {
+    return { planes: state.planes};
+  }
+   export default connect(mapStateToProps, null)(Services);
