@@ -17,7 +17,7 @@ const MiBilletera = () => {
                         <div class="col bg-light">
                             <div class="row h-100">
                                 <div class="col-8 h-25 w-100 p-4">
-                                    <div class="d-flex justify-content-center w-100 h-100 bg-secondary text-white rounded-5">
+                                    <div class="d-flex justify-content-center w-100 h-100 bg-secondary text-white rounded-5 ">
                                         <Balance />
                                     </div>
                                 </div>
