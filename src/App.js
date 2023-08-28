@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 import AboutUs from './components/Landing_Page/About_Us/AboutUs';
+import QrGenerator from "./components/QrPage/QrGenerator/QrGenerator" // Generador de Qr
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/App.css';
 
