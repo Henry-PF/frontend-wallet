@@ -1,0 +1,101 @@
+.QuickTransactionContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.text h3 {
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+margin-bottom: 20px;  padding: 0;
+}
+.buttonFav {
+  border: none;
+  background-color: rgb(223, 219, 219);
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  text-align: center;
+  text-align: center;
+  color: black;
+  font-size: 40px;
+}
+.text {
+  display: flex;
+}
+.favorites {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 90%;
+}
+.favorites p {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.favorites a,
+.card a {
+  text-decoration: none;
+}
+.card {
+}
+
+.inputTransfer {
+  border: none; /* Elimina los bordes por defecto */
+  border-bottom: 1px solid black; /* Agrega un borde inferior de 2px de grosor y color negro */
+  padding: 5px; /* Añade algún espacio interno para que el texto no quede pegado al borde */
+  outline: none; /* Elimina el resaltado al enfocar el input */
+  width: 80%; /* O ajusta el ancho según tus necesidades */
+  margin: 0 20px;
+  padding: 10px;
+  height: 50px;
+  background-color: transparent;
+  text-align: center;
+}
+/* TuArchivoDeEstilos.module.css */
+
+.errorInput {
+  border-color: red;
+  color: red;
+}
+
+.errorMessage {
+  color: red;
+}
+.inputError{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.selected {
+  background-color: black; 
+  color: white;
+}
+
+.buttonTransfer {
+  width: 100px;
+  margin: 0;
+  padding: 0;
+  height: 51px;
+  border: none;
+}
+.buttonTransfer:hover{
+  background-color: black;
+  color: white;
+}
+
+.transferContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
