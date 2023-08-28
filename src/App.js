@@ -8,7 +8,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 import AboutUs from './components/Landing_Page/About_Us/AboutUs';
-import QrGenerator from "./components/QrPage/QrGenerator/QrGenerator" // Generador de Qr
+import QrGenerator from "./components/User_Panel/QrPage/QrGenerator/QrGenerator" // Generador de Qr
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/App.css';
 
@@ -22,6 +22,7 @@ function App(props) {
         <Route exact path='/dashboard/mi_billetera' element={<MiBilletera />} />
         <Route exact path='/dashboard/transferencia' element={<Transferencias />} />
         <Route exact path='/dashboard/settings' element={<Settings />} />
+        <Route exact path='/dashboard/qrgenerator' element={<QrGenerator />} />
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/recoverPassword' element={<RecoverPassword />} />
