@@ -1,0 +1,100 @@
+.formStyles{
+  background-image: url('/public/bgImage.jpg');;
+  background-size: cover;
+  background-attachment: fixed; 
+  
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  text-align: center;
+
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.cardStyles{
+  display: flex;
+  border-radius: 25px;
+}
+
+.tagStyle{
+  font-size: 1.2rem;
+}
+
+.inputStyle{
+  font-size: 1.1rem;
+}
+
+.inputError{
+  border-color: red;
+}
+
+.errorText{
+  font-size: 1.1rem;
+  color: red;
+}
+
+.errorContainer {
+  height: 1.1rem; 
+}
+
+.linksReg{
+  color: rgb(11, 81, 230);
+  text-decoration: none;
+}
+
+.submitButton{
+  /* align-items: center; */
+  width: 150px;
+	background: black;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+
+
+
+
+@media (max-width:720px) {
+  .formContainer{
+    padding: 5rem;
+  }
+
+  .inputContainer{
+    width: auto;
+  }
+
+  .tagStyle{
+    white-space:unset;
+  }
+
+  .inputStyle{
+    display: block;
+  }
+
+  .submitButton{
+    font-size: 12px; 
+    padding: 5px 10px; 
+    align-items: center;
+  }
+}
+
+
+  
+
+  
+
+
+
+  
+
+  
+

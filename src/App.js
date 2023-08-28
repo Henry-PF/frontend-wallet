@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Landing_Page/Home/Home';
+import UserHome from './components/User_Panel/Home/UserHome';
+import MiBilletera from './components/User_Panel/MiBilletera/Mi_Billetera';
+import Transferencias from './components/User_Panel/Transferencias/Transferencias';
+import Settings from './components/User_Panel/Settings/Settings';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
+import RecoverPassword from './components/RecoverPassword/RecoverPassword';
+import AboutUs from './components/Landing_Page/About_Us/AboutUs';
+import QrGenerator from "./components/User_Panel/QrPage/QrGenerator/QrGenerator" // Generador de Qr
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/about_us' element={<AboutUs />} />
+        <Route exact path='/dashboard' element={<UserHome />} />
+        <Route exact path='/dashboard/mi_billetera' element={<MiBilletera />} />
+        <Route exact path='/dashboard/transferencia' element={<Transferencias />} />
+        <Route exact path='/dashboard/settings' element={<Settings />} />
+        <Route exact path='/dashboard/qrgenerator' element={<QrGenerator />} />
+        <Route exact path='/register' element={<Register />} />
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/recoverPassword' element={<RecoverPassword />} />
+      </Routes>
     </div>
   );
 }

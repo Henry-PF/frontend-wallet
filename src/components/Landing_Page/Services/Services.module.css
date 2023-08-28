@@ -1,0 +1,83 @@
+
+.servicesContainer{
+    background-color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding: 50px;
+}
+
+.cardTitle{
+    height: 60px;
+    margin: 0;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    height: 400px;
+    /* background: linear-gradient(to top, #cccece,  #f5f8f8); */
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+max-width: 500px;    border: none;
+
+}
+.cardRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    width: 100%;
+  }
+  .cardCol {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+    
+h2{
+    font-weight: bolder;
+    text-align: center;
+    font-size: 40px;
+}
+.divider {
+	width: 100%;
+	height: 1px;
+	background-color: #bdbaba; 
+	margin: 20px 0; 
+  }   
+.buttonSuscribe {
+    height: 60px;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+  }
+  .buttonSuscribe Button{
+    border-radius: 0;
+
+  }
+.cardText p {
+    margin: 0; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 10px;
+  }
+  .cardText p strong{
+        font-size: 40px
+
+  }
+  .descriptionContainer{
+    height: 100px;
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    
+  }
+  
