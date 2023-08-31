@@ -1,0 +1,7 @@
+.confirmContainer{
+    border: 1px solid white;
+    background-color: rgb(78, 77, 77);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1rem;
+}
