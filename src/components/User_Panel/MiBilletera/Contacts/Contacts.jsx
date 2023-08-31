@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-
 const Contacts = () => {
     return (
         <div className='mt-3'>
