@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-
+import Recarga from '../Formularios/Recarga';
 const ButtonPanel = () => {
   return (
     <div class="d-grid gap-2 col-10 mx-auto ">
@@ -20,7 +20,7 @@ const ButtonPanel = () => {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Funcion para poder depositar plata a la cuenta 
+              <Recarga/>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
