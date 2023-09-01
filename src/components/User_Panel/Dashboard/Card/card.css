@@ -1,80 +1,56 @@
-.card {
-    width: 65%;
-    border-radius: 10%;
-}
-
-.flip-card {
-    background-color: rgb(39, 39, 39);
+.wallet-cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
-    height: 220px;
-    perspective: 1000px;
-    color: white;
-    border-radius: 20px;
+    padding: 20px;
 }
 
-.heading_8264 {
-    position: absolute;
-    letter-spacing: .2em;
-    font-size: 0.8em;
-    top: 2em;
-    left: 18.6em;
+.wallet-cards {
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+    color: rgb(119, 119, 119);
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(124, 124, 124);
 }
 
-.logo {
-    position: absolute;
-    right: 1em;
-    bottom: .5em;
+/* .wallet-cards:nth-child(1) {
+    background-color: rgb(50, 160, 59);
 }
 
-.chip {
-    position: absolute;
-    top: 3.5em;
-    left: 1.5em;
+.wallet-cards:nth-child(2) {
+    background-color: rgba(255, 0, 34, 0.842);
 }
 
-.money {
-    position: absolute;
-    color: green;
-    font-size: 2.5em;
-    font-weight: 500;
-    top: .1em;
-    left: 1em;
+.wallet-cards:nth-child(3) {
+    background-color: rgb(50, 88, 160);
+} */
+
+.wallet-money {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 1.6em;
+    border-bottom: 1px solid;
 }
 
-.contactless {
-    position: absolute;
-    top: 4em;
-    right: 1em;
+.wallet-money p {
+    margin: 0;
 }
 
-.number {
-    position: absolute;
-    font-weight: bold;
-    font-size: 1.7em;
-    top: 4em;
-    left: .9em;
+.wallet-cards .wallet-balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
 }
 
-.valid_thru {
-    position: absolute;
-    font-weight: bold;
-    top: 635.8em;
-    font-size: .01em;
-    left: 140.3em;
-}
-
-.date_8264 {
-    position: absolute;
-    font-weight: bold;
-    font-size: 1em;
-    top: 9.2em;
-    left: 1.6em;
-}
-
-.name {
-    position: absolute;
-    font-weight: bold;
-    font-size: 1.4em;
-    left: 1.1em;
-    bottom: 0;
+.wallet-cards .wallet-balance p {
+    font-size: 2em;
 }

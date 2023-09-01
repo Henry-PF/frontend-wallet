@@ -1,17 +1,11 @@
-FROM node:16-alpine
-
-RUN mkdir -p /app
-
-WORKDIR /app
-
-COPY package.json /app
-
-RUN npm install
-
-COPY . /app
-
+FROM node:16-alpine as build
+WORKDIR /usr/app
+COPY . /usr/app
+RUN npm ci
 RUN npm run build
 
-EXPOSE 3000
-
-CMD [ "npm", "start"]
+FROM nginx:1.23.1-alpine
+EXPOSE 80
+COPY ./docker/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
+COPY ./build /usr/app/dist 
+COPY ./build /usr/share/nginx/html
