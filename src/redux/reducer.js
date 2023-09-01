@@ -1,4 +1,4 @@
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO } from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO , ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from "./actions_type";
 
 const initialState = {
   user: {
@@ -40,9 +40,35 @@ const initialState = {
       name: "Jessica Davis"
     },
   ],
+  contacts: [
+    {
+      name: "John Doe",
+      email: "john@example.com",
+      id: "A123",
+    },
+    {
+      name: "Jane Smith",
+      email: "jane@example.com",
+      id: "B456",
+    },
+    {
+      name: "Alice Johnson",
+      email: "alice@example.com",
+      id: "C789",
+    },
+    {
+      name: "Bob Williams",
+      email: "bob@example.com",
+      id: "D012",
+    },
+    {
+      name: "Emily Brown",
+      email: "emily@example.com",
+      id: "E345",
+    },
+  ],
   error: null,
-  plans: [],
-
+  plans: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -91,11 +117,25 @@ const rootReducer = (state = initialState, action) => {
           last_recharge: action.payload
         }
       }
+    case ADD_TO_FAVORITES:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          favorites: [...state.user.favorites, action.payload],
+        },
+      };
+    case REMOVE_FROM_FAVORITES:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          favorites: state.user.favorites.filter(contact => contact.id !== action.payload),
+        },
+      };
     default:
       return state;
   }
-}
+};
 
 export default rootReducer;
-
-

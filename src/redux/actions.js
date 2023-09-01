@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO } from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, } from "./actions_type";
+
 
 export const updateSaldo = (newSaldo) => {
   return {
@@ -94,3 +95,17 @@ export const reloadByMp = (userData) => {
   };
 };
 
+
+  export const addToFavorites = (contact) => {
+    return {
+      type: ADD_TO_FAVORITES,
+      payload: contact,
+    };
+  };
+  
+  export const removeFromFavorites = (contactId) => {
+    return {
+      type: REMOVE_FROM_FAVORITES,
+      payload: contactId,
+    };
+  };
