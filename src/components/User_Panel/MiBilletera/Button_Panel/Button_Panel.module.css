@@ -1,0 +1,17 @@
+.contactItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .contactInfo {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contactButtons {
+    display: flex;
+  }
+  
