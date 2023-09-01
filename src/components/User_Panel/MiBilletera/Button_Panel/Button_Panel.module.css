@@ -10,8 +10,43 @@
     display: flex;
     align-items: center;
   }
-  
+  .contactInfo span{
+    color: black;
+
+  }
   .contactButtons {
     display: flex;
   }
+ 
+  .contactsFavs{
+    display: flex;
+    justify-content: space-around;
+  }
+  /* Estilo para los contenedores de contactos y favoritos */
+.contactsContainer,
+.favoritesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Para que los elementos se expandan verticalmente */
+  min-height: 200px; /* Altura mínima deseada */
+  border: 1px solid #ccc; /* Borde opcional */
+}
+
+/* Estilo para cada elemento de contacto o favorito */
+.contactItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ccc; /* Línea divisoria entre elementos */
+}
+
+/* Estilo para los botones dentro de cada elemento */
+.contactButtons button {
+  margin-left: 8px;
+}
+.selected {
+    background-color: #b7cdee; /* Cambia el color de fondo como desees */
+  }
+  
   

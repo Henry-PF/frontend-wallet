@@ -4,20 +4,84 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { addToFavorites, removeFromFavorites } from "./actions";
 import styles from "./Button_Panel.module.css";
-import { addToFavorites, removeFromFavorites } from "../../../../redux/actions";
+import {
+  addToFavorites,
+  removeFromFavorites,
+  updateSaldo,
+} from "../../../../redux/actions";
+import ModalTransfer from "./ModalTransfer/ModalTransfer";
 
 const ButtonPanel = () => {
-  const { contacts, favorites } = useSelector((state) => state.user);
-  console.log(contacts);
+  const { contacts, favorites, saldo } = useSelector((state) => state.user);
   const [activeSection, setActiveSection] = useState("CONTACTOS");
+  const [activeTextColor, setActiveTextColor] = useState("blue");
   const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
+  const [selectedContact, setSelectedContact] = useState(null);
+  const [selectedFavorite, setSelectedFavorite] = useState(null);
+
+
+  const handleTransfer = () => {
+    const parsedAmount = parseFloat(amount);
+  
+    if (selectedContact === null) {
+      setError("Selecciona un usuario antes de realizar la transferencia");
+      return;
+    }
+    // Validación: El campo no puede ser nulo
+    if (!amount || amount.trim() === "") {
+      setError("El campo no puede ser nulo");
+      return;
+    }
+  
+    // Validación: Si se ingresa una letra, muestra 'solo número'
+    if (isNaN(parsedAmount)) {
+      setError("Ingresa solo números");
+      return;
+    }
+  
+    // Validación: Si se ingresa un número negativo, muestra 'monto inválido'
+    if (parsedAmount < 0) {
+      setError("Monto inválido");
+      return;
+    }
+  
+    // Validación: Si el monto es mayor que el saldo, muestra 'saldo insuficiente'
+    if (parsedAmount > saldo) {
+      setError("Saldo insuficiente");
+      return;
+    }
+  
+    // Si pasa todas las validaciones, muestra un alert y realiza la transferencia
+    window.confirm('Esta seguro que desea realizar la operacion?')
+    alert("Transferencia realizada con éxito");
+    const nuevoSaldo = saldo - parsedAmount;
+    dispatch(updateSaldo(nuevoSaldo));
+    setAmount("");
+    setError("");
+  };
+  
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  const filteredContacts = contacts.filter((contact) =>
+    contact.email.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
+    setActiveTextColor(section === "CONTACTOS" ? "blue" : "black");
   };
 
   const handleFavoriteClick = (contact) => {
-   
     const isFavorite = favorites.some((fav) => fav.id === contact.id);
 
     if (isFavorite) {
@@ -26,13 +90,37 @@ const ButtonPanel = () => {
       dispatch(addToFavorites(contact));
     }
   };
-  // handleDeleteClick(){}
-  //MAPEO DE TODOS LOS CONTACTOS
-  const renderContacts = () => {
+  const handleContactClick = (contact) => {
+    // Si el contacto seleccionado es el mismo que se hace clic, deselecciónalo
+    if (selectedContact === contact) {
+      setSelectedContact(null);
+    } else {
+      setSelectedContact(contact);
+    }
+    // Puedes realizar otras acciones si es necesario
+  };
+  
+  const handleFavoriteItemClick = (favorite) => {
+    // Si el favorito seleccionado es el mismo que se hace clic, deselecciónalo
+    if (selectedFavorite === favorite) {
+      setSelectedFavorite(null);
+    } else {
+      setSelectedFavorite(favorite);
+    }
+    // Puedes realizar otras acciones si es necesario
+  };
+  
+  
+  
+  const renderContacts = (filteredContacts) => {
     return (
-      <ul>
-        {contacts.map((contact) => (
-          <li key={contact.id} className={styles.contactItem}>
+      <ul className={styles.contactsContainer}>
+        {filteredContacts.map((contact) => (
+          <li
+            key={contact.id}
+            className={`${styles.contactItem} ${selectedContact === contact ? styles.selected : ''}`}
+            onClick={() => handleContactClick(contact)}
+          >
             <div className={styles.contactInfo}>
               <span>{contact.name}</span>
               <span>({contact.email})</span>
@@ -48,22 +136,25 @@ const ButtonPanel = () => {
       </ul>
     );
   };
-//al renderizar favoritos quisiera que todos comiencen con la estrella en negro 
-//al hacer clic en la estrella se debe ejecutar la funcion de handlefavoriteclic , que se encarga de eliminar o agregar favoritos 
-  const renderFavorites = (contact) => {
+  
+
+  const renderFavorites = () => {
     return (
-      <ul>
+      <ul className={styles.favoritesContainer}>
         {favorites.map((favorite) => (
-          <li key={favorite.id} className={styles.contactItem}>
+          <li
+            key={favorite.id}
+            className={`${styles.contactItem} ${selectedFavorite === favorite ? styles.selected : ''}`}
+            onClick={() => handleFavoriteItemClick(favorite)} // Cambia el nombre de la función aquí
+          >
             <div className={styles.contactInfo}>
               <span>{favorite.name}</span>
               <span>({favorite.email})</span>
             </div>
             <div className={styles.contactButtons}>
-            <button onClick={() => handleFavoriteClick(favorite)}>
-  {favorites.some((fav) => fav.id === favorite.id) ? "★" : "☆"}
-</button>
-             
+              <button onClick={() => handleFavoriteClick(favorite)}>
+                {favorites.some((fav) => fav.id === favorite.id) ? "★" : "☆"}
+              </button>
               <button>🗑️</button>
             </div>
           </li>
@@ -71,11 +162,7 @@ const ButtonPanel = () => {
       </ul>
     );
   };
-  // const handleEmailChange = event => {
-  //   const userEmail = event.target.value;
-  //   const user = users.find(user => user.email === userEmail);
-  //   setSelectedUser(user);
-  // };
+  
 
   return (
     <div class="d-grid gap-2 col-10 mx-auto ">
@@ -122,7 +209,7 @@ const ButtonPanel = () => {
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
+          <div class="modal-content" style={{ minWidth: "500px" }}>
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
                 Modal title
@@ -231,56 +318,149 @@ const ButtonPanel = () => {
       >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Elegí a qué cuenta transferir
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-
-            <div className="modal-body">
+            <div
+              class="modal-header"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               <div>
-                <h6
-                  onClick={() => handleSectionClick("CONTACTOS")}
-                  style={{ cursor: "pointer" }}
-                >
-                  Contactos
-                </h6>
-                <h6
-                  onClick={() => handleSectionClick("FAVORITOS")}
-                  style={{ cursor: "pointer" }}
-                >
-                  Favoritos
-                </h6>
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Elegí a qué cuenta transferir
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  style={{
+                    position: "absolute",
+                    top: "20px",
+                    right: "15px",
+                    fontSize: "15px",
+                  }}
+                ></button>
               </div>
-              {activeSection === "CONTACTOS" ? (
-                contacts && contacts.length > 0 ? (
-                  renderContacts()
-                ) : (
-                  <p>No tienes contactos.</p>
-                )
-              ) : favorites && favorites.length > 0 ? (
-                renderFavorites()
-              ) : (
-                <p>No tienes favoritos.</p>
-              )}
+
+              <input
+                type="text"
+                placeholder="Buscar por email..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{
+                  width: "228px",
+                  border: "1px solid #ccc",
+                  padding: "2px",
+                }}
+              />
             </div>
 
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
+            <div
+              className="modal-body"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "350px",
+                }}
               >
-                Close
-              </button>
+                <div className={styles.contactsFavs}>
+                  <h6
+                    onClick={() => handleSectionClick("CONTACTOS")}
+                    style={{
+                      cursor: "pointer",
+                      color:
+                        activeSection === "CONTACTOS"
+                          ? activeTextColor
+                          : "black",
+                    }}
+                  >
+                    Contactos
+                  </h6>
+                  <h6
+                    onClick={() => handleSectionClick("FAVORITOS")}
+                    style={{
+                      cursor: "pointer",
+                      color:
+                        activeSection === "FAVORITOS"
+                          ? activeTextColor
+                          : "black",
+                    }}
+                  >
+                    Favoritos
+                  </h6>
+                </div>
+                {/* //BUSCADOR */}
+                <div>
+                  {activeSection === "CONTACTOS" ? (
+                    <div>
+                      {/* <input
+                    type="text"
+                    placeholder="Buscar por email..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={{marginLeft:'30px'}}
+                  /> */}
+                      {filteredContacts.length > 0 ? (
+                        renderContacts(filteredContacts)
+                      ) : (
+                        <p>No se encontraron contactos.</p>
+                      )}
+                    </div>
+                  ) : favorites && favorites.length > 0 ? (
+                    renderFavorites()
+                  ) : (
+                    <p>No tienes favoritos.</p>
+                  )}
+                </div>
+              </div>
+              {/* TRANSFERENCIA */}
+              <div style={{ display: "flex", justifyContent: "center", flexDirection:'column' }}>
+                <div>
+                  <h3 style={{ fontSize: "18px" }}>
+                    Dinero disponible ${saldo}
+                  </h3>
+                </div>
+                <div>
+                  <div className={styles.inputError} style={{display:'flex'}}>
+                    <input
+                      type="text"
+                      placeholder="Ingresa el monto"
+                      value={amount}
+                      onChange={(e) => setAmount(e.target.value)}
+                    />
+                    {error && <p className={styles.errorMessage}>{error}</p>}
+                     <button
+                    className={styles.buttonTransfer}
+                    onClick={handleTransfer}
+                    type="button"
+                    class="btn btn-secondary"
+                  >
+                    Enviar
+                  </button>
+                  </div>
+                 
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* <div class="modal-footer">
+           
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div> */}
         </div>
       </div>
     </div>
