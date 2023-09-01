@@ -1,14 +1,15 @@
 .settings-img {
     width: 200px !important;
-    height: 220px;
+    height: 220px !important;
 }
 
 .settings-img img {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     margin: 0;
     object-fit: cover;
     border-radius: 50%;
+    margin: 0 15px;
 }
 
 .settings-input {

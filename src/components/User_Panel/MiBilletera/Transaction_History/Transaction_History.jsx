@@ -3,7 +3,14 @@ import React from 'react'
 const TransactionHistory = () => {
     return (
         <>
-            <h2>TransactionHistory</h2>
+            <div>
+
+                <h2>Mi Plan</h2>
+            </div>
+            <br />
+            <div>
+                <h2>Planes</h2>
+            </div>
         </>
     )
 }

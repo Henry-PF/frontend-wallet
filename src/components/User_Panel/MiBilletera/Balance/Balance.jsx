@@ -6,7 +6,8 @@ const Balance = (prop) => {
     return (
         <>
             <div>
-                <h2>{`balance: ${saldo}`}</h2>
+                <h2>Saldo Actual </h2>
+                <h2>{`$ ${saldo || 0}`}</h2>
             </div>
         </>
     )

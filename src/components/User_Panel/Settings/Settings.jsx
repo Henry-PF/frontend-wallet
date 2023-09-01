@@ -19,16 +19,16 @@ const Settings = (props) => {
       <section className="">
         <div className="container-fluid">
           <div className="row position-relative">
-            <div className="col-auto col-md-2 col-xl-2 d-flex align-items-center justify-content-center px-sm-2 px-0 min-vh-100 bg-dark">
+            <div className="col-auto px-0 min-vh-100 bg-dark">
               <Navbar />
             </div>
-            <div className="col-5 bg-light">
+            <div className="col bg-light">
               <h1 className="p-3">Mi Cuenta</h1>
               <Button variant="primary" onClick={() => setModalShow(true)} className='position-absolute top-0 end-0 m-4 p-1 bg-danger text-white border-0 text-decoration-none'>
-                Cancelar Cuenta              </Button>
+                Cancelar Cuenta
+              </Button>
 
               <ModalBaja show={modalShow} onHide={() => setModalShow(false)} />
-
 
               <div className="row m-3 d-flex align-items-center justify-content-center">
                 <div className="col settings-img">
@@ -37,8 +37,6 @@ const Settings = (props) => {
                     alt=""
                     className=" object-fit-cover"
                   />
-                </div>
-                <div className="col d-flex align-items-center">
                   <button className="p-2 border-0 bg-secundary rounded">
                     Cambiar Imagen
                   </button>
@@ -46,41 +44,80 @@ const Settings = (props) => {
               </div>
               <form className="row d-flex flex-column align-items-center">
                 <div className="row w-100 d-flex align-items-center">
-                  <div className="col-2 d-flex flex-column">
-                    <label className="m-3">Nombre</label>
-                    <label className="m-3">Correo</label>
-                    <label className="m-3">Contraseña</label>
-                  </div>
-                  <div className="col-8 w-75 d-flex flex-column align-items-center">
-                    <div className="w-75">
+                  <div className="col d-flex flex-column">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <label className="w-25 m-3">Nombre</label>
                       <input
-                        className="settings-input m-3 w-75"
+                        className="settings-input m-3 w-50"
                         type="text"
-                        placeholder="Name"
+                        placeholder={`${localStorage.nombre} ${localStorage.apellido}`}
                         disabled
                       />
                       <button className="border-0 bg-transparent" type="button">
                         {editIcon}
                       </button>
                     </div>
-                    <div className="w-75">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <label className="w-25 m-3">Correo</label>
                       <input
-                        className="settings-input m-3 w-75"
+                        className="settings-input m-3 w-50"
                         type="email"
-                        placeholder="example@example.com"
+                        placeholder={localStorage.correo_electronico}
                         disabled
                       />
                       <button className="border-0 bg-transparent" type="button">
                         {editIcon}
                       </button>
                     </div>
-                    <div className="w-75">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <label className="w-25 m-3">Contraseña</label>
                       <input
-                        className="settings-input m-3 w-75"
+                        className="settings-input m-3 w-50"
                         type="password"
                         name="password"
                         id=""
                         placeholder="**********"
+                        disabled
+                      />
+                      <button className="border-0 bg-transparent" type="button">
+                        {editIcon}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="col d-flex flex-column">
+                    <div className="d-flex align-items-center justify-content-between">
+                      <label className="w-25 m-3">DNI / PASAPORTE</label>
+                      <input
+                        className="settings-input m-3 w-50"
+                        type="text"
+                        placeholder={localStorage.dni}
+                        disabled
+                      />
+                      <button className="border-0 bg-transparent" type="button">
+                        {editIcon}
+                      </button>
+                    </div>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <label className="w-25 m-3">Teléfono</label>
+                      <input
+                        className="settings-input m-3 w-50"
+                        type="email"
+                        placeholder={localStorage.telefono}
+                        disabled
+                      />
+                      <button className="border-0 bg-transparent" type="button">
+                        {editIcon}
+                      </button>
+                    </div>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <label className="w-25 m-3">Dirección</label>
+                      <input
+                        className="settings-input m-3 w-50"
+                        type="password"
+                        name="password"
+                        id=""
+                        placeholder={localStorage.direccion}
                         disabled
                       />
                       <button className="border-0 bg-transparent" type="button">
@@ -96,11 +133,6 @@ const Settings = (props) => {
                   disabled
                 />
               </form>
-            </div>
-
-            <div className="col bg-light vh-100 d-flex flex-column align-items-center justify-content-center">
-              <Card />
-              <button className="mt-3">Congelar Tarjeta</button>
             </div>
           </div>
         </div>

@@ -24,18 +24,24 @@ export const getTestimonials = () => {
 
 export const userLogin = (email, password) => async (dispatch) => {
   try {
-    const response = await axios.post('http://localhost:3001/auth/login', {
+    const { data } = await axios.post('http://localhost:3001/auth/login', {
       user: email,
       pass: password,
     });
 
-    const { token } = response.data;
+    const { token } = data;
 
     localStorage.setItem('accessToken', token);
+    localStorage.setItem('nombre', data.data.nombre);
+    localStorage.setItem('apellido', data.data.apellido);
+    localStorage.setItem('dni', data.data.dni);
+    localStorage.setItem('telefono', data.data.telefono);
+    localStorage.setItem('direccion', data.data.direccion);
+    localStorage.setItem('correo_electronico', data.data.correo_electronico);
 
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: response.data,
+      payload: data,
     });
   } catch (error) {
     dispatch({

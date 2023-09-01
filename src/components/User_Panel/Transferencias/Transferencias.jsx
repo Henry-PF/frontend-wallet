@@ -16,7 +16,7 @@ const Transferencias = () => {
             <section className=''>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-auto col-md-2 col-xl-2 d-flex align-items-center justify-content-center px-sm-2 px-0 min-vh-100 bg-dark" >
+                        <div className="col-auto px-0 min-vh-100 bg-dark" >
                             <Navbar />
                         </div>
 

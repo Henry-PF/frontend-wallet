@@ -13,16 +13,6 @@ const Register = () => {
   const onSubmit = (values, actions) => {
     const formData = new FormData();
 
-    // formData.append('name', values.name);
-    // formData.append('surname', values.surname);
-    // formData.append('email', values.email);
-    // formData.append('dni', values.dni);
-    // formData.append('address', values.address);
-    // formData.append('phone', values.phone);
-    // formData.append('picfile', values.picfile);
-    // formData.append('idpic1', values.idfile1);
-    // formData.append('idpic2', values.idfile2);
-
     const dataCliente = {
       usuario: values.user,
       contra: values.pass,
@@ -54,7 +44,7 @@ const Register = () => {
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
 
     // Valores iniciales que vamos a tener en nuestro formulario
-    initialValues: { name: "", surname: "", email: "", dni: "", address: "", phone: "", picfile: null, idfile1: null, idfile2: null },
+    initialValues: { user: "", pass: "", name: "", surname: "", email: "", dni: "", address: "", phone: "", picfile: null, idfile1: null, idfile2: null },
     // Esquema de validaciones, que declaramos e importamos
     validationSchema: validations,
     // Funcion onSubmit que tomara el lugar en cualquier handleSubmit
@@ -82,7 +72,7 @@ const Register = () => {
                   <div className="errorContainer">{errors.user && touched.user && <p className='errorText'>{errors.user}</p>}</div>
                 </div>
               </div>
-
+              <hr className="mx-n3" />
               <div className="row align-items-center pt-3 pb-2 fieldStyle">
                 <div className="col-md-3 ps-5">
                   <h6 className="tagStyle">Contraseña</h6>
@@ -95,13 +85,11 @@ const Register = () => {
                   <div className="errorContainer">{errors.pass && touched.pass && <p className='errorText'>{errors.pass}</p>}</div>
                 </div>
               </div>
-
-
+              <hr className="mx-n3" />
               <div className="row align-items-center pt-3 pb-2 fieldStyle">
                 <div className="col-md-3 ps-5">
                   <h6 className="tagStyle">Nombre</h6>
                 </div>
-
                 <div className="col-md-9 pe-5">
                   <input type="text" id='name' name="name" onChange={handleChange} value={values.name}
                     placeholder="Su nombre aquí" onBlur={handleBlur}
