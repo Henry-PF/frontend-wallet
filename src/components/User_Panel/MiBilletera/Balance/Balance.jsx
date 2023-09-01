@@ -5,15 +5,16 @@ const Balance = (prop) => {
     const saldo = prop.saldo
     return (
         <>
-            <div className=''>
+            <div>
                 <h2>{`balance: ${saldo}`}</h2>
             </div>
         </>
     )
 }
 const mapStateToProps = (state) => {
-    return { saldo: state.user.saldo
+    return {
+        saldo: state.user.saldo
     };
-  }
+}
 
 export default connect(mapStateToProps, null)(Balance);

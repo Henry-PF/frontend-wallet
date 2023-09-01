@@ -4,3 +4,5 @@ export const UPDATE_SALDO = "UPDATE_SALDO";
 export const GET_TESTIMONIALS = "GET_TESTIMONIALS";
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const GET_ALL_PLANS = 'GET_ALL_PLANS';
+export const RELOAD_BY_PM = 'RELOAD_BY_PM'

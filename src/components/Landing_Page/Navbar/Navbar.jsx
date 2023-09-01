@@ -20,13 +20,13 @@ const Navbar = () => {
                         {/* <li className="nav-item mx-2">
                             <a className="nav-link" href="/login">Iniciar Sesion</a>
                         </li> */}
-                        <li class="nav-item mx-2 dropdown">
-                            <a class="nav-link text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li className="nav-item mx-2 dropdown">
+                            <a className="nav-link text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Acceder
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/login">Iniciar Sesion</a></li>
-                                <li><a class="dropdown-item" href="/register">Crear Cuenta</a></li>
+                            <ul className="dropdown-menu">
+                                <li><a className="dropdown-item" href="/login">Iniciar Sesion</a></li>
+                                <li><a className="dropdown-item" href="/register">Crear Cuenta</a></li>
                             </ul>
                         </li>
                     </ul>

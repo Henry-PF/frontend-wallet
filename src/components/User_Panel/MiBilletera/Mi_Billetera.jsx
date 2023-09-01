@@ -8,34 +8,32 @@ import TransactionHistory from './Transaction_History/Transaction_History'
 const MiBilletera = () => {
     return (
         <>
-            <section className=''>
+            <section>
                 <div className="container-fluid" >
                     <div className="row" >
                         <div className="col-auto col-md-2 col-xl-2 d-flex align-items-center justify-content-center px-sm-2 px-0 min-vh-100 bg-dark" >
                             <Navbar />
                         </div>
-                        <div class="col bg-light">
-                            <div class="row h-100">
-                                <div class="col-8 h-25 w-100 p-4">
-                                    <div class="d-flex justify-content-center w-100 h-100 bg-secondary text-white rounded-5 ">
+                        <div className="col bg-light">
+                            <div className="row h-100">
+                                <div className="col-8 h-25 w-100 p-4">
+                                    <div className="d-flex justify-content-center w-100 h-100 bg-secondary text-white rounded-5 ">
                                         <Balance />
                                     </div>
                                 </div>
-                                <div class="col-8 h-75 w-100 p-4">
-                                    <div class="w-100 h-100 d-flex justify-content-center bg-secondary text-white rounded-5">
+                                <div className="col-8 h-75 w-100 p-4">
+                                    <div className="w-100 h-100 d-flex justify-content-center bg-secondary text-white rounded-5">
                                         <TransactionHistory />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-2 bg-light d-flex flex-column w-25 p-4 ">
-                            <div class="row">
+                            <div className="row">
                                 <ButtonPanel />
                             </div>
-                            <div class="row">
-
+                            <div className="row">
                                 <Contacts />
-
                             </div>
                         </div>
                     </div>

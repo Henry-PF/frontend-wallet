@@ -21,9 +21,9 @@ const Recarga = () => {
 
     const toMercadoPago = (event) => {
         try {
-        //aca se haria el post a la ruta donde se declaren los pagos para mercado pago
-        const data = dispatch(reloadByMp(userData));
-        console.log(data);
+            //aca se haria el post a la ruta donde se declaren los pagos para mercado pago
+            const data = dispatch(reloadByMp(userData));
+            console.log(data);
         } catch (error) {
             console.log(error.message);
         }
@@ -35,22 +35,22 @@ const Recarga = () => {
 
 
     return (
-        <div class="d-grid gap-2 col-6 mx-auto">
+        <div className="d-grid gap-2 col-6 mx-auto">
             <h5>Monto a ingresar</h5>
             <hr />
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text rounded-0">$</span>
+            <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                    <span className="input-group-text rounded-0">$</span>
                 </div>
-                <input type="number" value={userData.price} name="price" class="form-control rounded-0" aria-label="Amount (to the nearest dollar)" onChange={handleChange} />
-                <div class="input-group-append">
-                    <span class="input-group-text rounded-0">ARS</span>
+                <input type="number" value={userData.price} name="price" className="form-control rounded-0" aria-label="Amount (to the nearest dollar)" onChange={handleChange} />
+                <div className="input-group-append">
+                    <span className="input-group-text rounded-0">ARS</span>
                 </div>
             </div>
             <hr />
-            <button class="btn btn-success" type="button" disabled>Credito/Debito</button>
-            <button class="btn btn-success" type="button" disabled>Transferencia</button>
-            <button class="btn btn-success" type="button" onClick={() => toMercadoPago()}>Mercado Pago</button>
+            <button className="btn btn-success" type="button" disabled>Credito/Debito</button>
+            <button className="btn btn-success" type="button" disabled>Transferencia</button>
+            <button className="btn btn-success" type="button" onClick={() => toMercadoPago()}>Mercado Pago</button>
         </div>
     )
 }

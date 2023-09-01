@@ -54,7 +54,7 @@ const Register = () => {
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
 
     // Valores iniciales que vamos a tener en nuestro formulario
-    initialValues: { name: "", surname: "", email: "", dni: "", address: "", phone: "", picfile: null, idpic1: null, idpic2: null },
+    initialValues: { name: "", surname: "", email: "", dni: "", address: "", phone: "", picfile: null, idfile1: null, idfile2: null },
     // Esquema de validaciones, que declaramos e importamos
     validationSchema: validations,
     // Funcion onSubmit que tomara el lugar en cualquier handleSubmit

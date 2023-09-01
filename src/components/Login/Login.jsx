@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from "react-router-dom";
+import { Await, Link, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../Landing_Page/Navbar/Navbar";
 import Footer from "../Landing_Page/Footer/Footer";
 import axios from 'axios';
@@ -11,12 +11,11 @@ import swal from "sweetalert";
 
 const Login = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const user = useSelector(state => state.user)
-  console.log(user);
+
   const [errors, setErrors] = useState({});
   const [access, setAccess] = useState(false);
-  const navigate = useNavigate();
   const [showPwd, setShowPwd] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -66,13 +65,25 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const { email, password } = userData;
 
-    dispatch(userLogin(email, password));
-    console.log(email, user.email);
-    email === user.email && password === user.pass ? navigate('/dashboard') : swal('Usuario o Contraseña incorrecta');
-  };
+    dispatch(userLogin(email, password))
+    try {
+      const { data } = await axios.post('http://localhost:3001/auth/login', {
+        user: email,
+        pass: password,
+      });
+      console.log(data);
+      if (await data.token) {
+        return navigate('/dashboard');
+      } else {
+        swal(data.error)
+      }
+    } catch (error) {
+      console.log(error);
+    };
+  }
+
 
   return (
     <div className={styles.loginContainer}>
@@ -187,7 +198,7 @@ const Login = () => {
             <button
               className={styles.buttonLogIn}
               type="submit"
-              disabled={!access}
+            // disabled={!access}
             >
               Ingresa
             </button>

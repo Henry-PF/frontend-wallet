@@ -17,13 +17,11 @@ const AboutUs = () => {
                 </div>
                 <h1 className='py-2 text-center'>Nuestro Equipo</h1>
                 <div >
-                    <div class="cards-container">
+                    <div className="cards-container">
                         <div className='card-container'>
                             <img src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
                             <div className='card-info'>
-                                <div className='card-name'>
-                                    <p>Alexander Torres</p>
-                                </div>
+                                <p className='card-name'>Alexander Torres</p>
                                 <div className='card-social'>
                                     <p className='fs-5'>Full Stack Developer</p>
                                     <div className='card-link'>

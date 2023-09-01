@@ -22,13 +22,13 @@ const Settings = (props) => {
             <div className="col-auto col-md-2 col-xl-2 d-flex align-items-center justify-content-center px-sm-2 px-0 min-vh-100 bg-dark">
               <Navbar />
             </div>
-            <div class="col-5 bg-light">
+            <div className="col-5 bg-light">
               <h1 className="p-3">Mi Cuenta</h1>
               <Button variant="primary" onClick={() => setModalShow(true)} className='position-absolute top-0 end-0 m-4 p-1 bg-danger text-white border-0 text-decoration-none'>
-              Cancelar Cuenta              </Button>
+                Cancelar Cuenta              </Button>
 
               <ModalBaja show={modalShow} onHide={() => setModalShow(false)} />
-             
+
 
               <div className="row m-3 d-flex align-items-center justify-content-center">
                 <div className="col settings-img">

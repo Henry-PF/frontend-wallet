@@ -3,9 +3,9 @@ import Dashboard from '../Dashboard/Dashboard'
 
 const UserHome = () => {
     return (
-        <section className=''>
+        <>
             <Dashboard />
-        </section>
+        </>
     )
 }
 

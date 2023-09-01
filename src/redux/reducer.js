@@ -1,4 +1,4 @@
-import { GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, UPDATE_SALDO } from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO } from "./actions_type";
 
 const initialState = {
   user: {
@@ -41,6 +41,8 @@ const initialState = {
     },
   ],
   error: null,
+  plans: [],
+
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -61,15 +63,34 @@ const rootReducer = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        user: action.payload,
+        user: {
+          ...action.payload,
+          token: action.payload.token,
+        },
         error: null,
+
       };
     case LOGIN_FAILURE:
       return {
         ...state,
-        user: null,
+        user: {
+          ...state.user,
+        },
         error: action.payload,
       };
+    case GET_ALL_PLANS:
+      return {
+        ...state,
+        plans: GET_ALL_PLANS,
+      }
+    case RELOAD_BY_PM:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          last_recharge: action.payload
+        }
+      }
     default:
       return state;
   }

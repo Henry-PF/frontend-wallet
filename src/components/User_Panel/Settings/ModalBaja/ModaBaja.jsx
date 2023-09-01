@@ -76,18 +76,18 @@ export const ModalBaja = (props) => {
             checked={isChecked}
             onChange={handleCheckboxChange}
           />
-<div className={styles.terminosContainer}>
-               <a
-            href="#"
-            onClick={() => setModalTerminosShow(true)}
-          >
-            términos y condiciones
-          </a>
-          <label className="form-check-label" htmlFor="termsCheckbox">
-            Acepto los términos y condiciones
-          </label>
+          <div className={styles.terminosContainer}>
+            <a
+              href="#"
+              onClick={() => setModalTerminosShow(true)}
+            >
+              términos y condiciones
+            </a>
+            <label className="form-check-label" htmlFor="termsCheckbox">
+              Acepto los términos y condiciones
+            </label>
           </div>
-         
+
         </div>
       </Modal.Body>
       <Modal.Footer>

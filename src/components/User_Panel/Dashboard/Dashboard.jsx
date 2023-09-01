@@ -20,7 +20,6 @@ const Dashboard = () => {
                                         <Card />
                                     </div>
                                 </div>
-
                             </div>
 
                             <div className="row bg-light">
