@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import styles from "./Login.module.css";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../Landing_Page/Navbar/Navbar";
 import Footer from "../Landing_Page/Footer/Footer";
-// import axios from 'axios';
+import axios from 'axios';
 import simulatedDatabase from "./data";
+import { userLogin } from "../../redux/actions";
+import styles from "./Login.module.css";
+import swal from "sweetalert";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const user = useSelector(state => state.user)
+  console.log(user);
   const [errors, setErrors] = useState({});
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
@@ -19,7 +26,8 @@ const Login = () => {
 
   const validate = () => {
     const regexEmail = /^[^@]{1,35}@[^@]+\.[a-zA-Z]{2,}$/;
-    const regexPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+    const regexPassword = /^(?=\w*\d)(?=\w*[a-z])\S{8,16}$/
+      ;
     //     Contiene al menos un dígito.
     // Contiene al menos una letra mayúscula.
     // Contiene al menos una letra minúscula.
@@ -56,21 +64,14 @@ const Login = () => {
     validate();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const emailInput = userData.email
-    const passwordInput = userData.password
 
-    if (emailInput === simulatedDatabase.email && passwordInput === simulatedDatabase.password) {
-      // Credenciales correctas, redirigir a /dashboard
-      navigate('/dashboard');
-    } else {
-      alert('Credenciales incorrectas. Inténtalo de nuevo.');
-    }
+    const { email, password } = userData;
 
-    // if (access) {
-    //   navigate("/");
-    // }
+    dispatch(userLogin(email, password));
+    console.log(email, user.email);
+    email === user.email && password === user.pass ? navigate('/dashboard') : swal('Usuario o Contraseña incorrecta');
   };
 
   return (
@@ -178,7 +179,7 @@ const Login = () => {
               href="/recoverPassword"
               className={styles.forgotPsw}
             >
-Olvidaste tu contraseña?            </a>
+              Olvidaste tu contraseña?            </a>
           </div>
 
           <br />
@@ -194,7 +195,7 @@ Olvidaste tu contraseña?            </a>
               className={styles.buttonLogIn}
               type="button"
               onClick={() => {
-                alert("vamos a registrarnos!");
+                navigate('/register');
               }}
             >
               Registrate
