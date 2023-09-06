@@ -11,8 +11,6 @@ const QuickTransaction = () => {
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
   const { favorites, saldo } = useSelector(state => state.user);
-  console.log(favorites, 'fav de user DE REDUX')
-  console.log(amount, 'soy el amount')
   const dispatch = useDispatch();
 
   const handleSelected = (id) => {
@@ -65,7 +63,6 @@ const QuickTransaction = () => {
 
         <div className={styles.favorites}>
           {favorites?.map((e) => (
-            console.log(e, 'cada elemento de favorites'),
             <div key={e.id}>
               <button
                 onClick={() => handleSelected(e.id)}

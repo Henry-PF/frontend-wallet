@@ -5,6 +5,10 @@ export const GET_TESTIMONIALS = "GET_TESTIMONIALS";
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const GET_ALL_PLANS = 'GET_ALL_PLANS';
-export const RELOAD_BY_PM = 'RELOAD_BY_PM'
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
+//------------------Mercado Pago-------------
+export const RELOAD_BY_PM = 'RELOAD_BY_PM';
+export const UPDATE_RELOAD_BY_MP = "UPDATE_RELOAD_BY_MP";
+export const GET_BALANCE_USER = "GET_BALANCE_USER";
+//----------------------------------------------

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, } from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UPDATE_RELOAD_BY_MP, GET_BALANCE_USER} from "./actions_type";
 
 
 export const updateSaldo = (newSaldo) => {
@@ -74,9 +74,8 @@ export const getAllPlanes = () => {
     }
   }
 }
-
+//_______________Mercado Pago___________________
 export const reloadByMp = (userData) => {
-
   return async (dispatch) => {
     try {
       userData.price = Number(userData.price)
@@ -94,6 +93,42 @@ export const reloadByMp = (userData) => {
     }
   };
 };
+export const UpdateReloadByMp = ({payment_id, userId}) => {
+  return async (dispatch) => {
+    try {
+        const { data } = await axios.get(`https://api.mercadopago.com/v1/payments/${payment_id}`, {
+            headers: {
+                'Authorization': `Bearer ${'TEST-1853044715803341-081015-5ab97b7b8454f836daacf26b66a01ccc-1063666303'}`
+            }
+        })
+        const saldo = data.transaction_amount;
+        const montoIngresado = { montoIngresado: saldo};
+        await axios.post(`http://localhost:3001/usuarios/bolsillo/${userId}`, montoIngresado);
+        window.location.href = "http://localhost:3002/dashboard/mi_billetera";
+      return dispatch({
+        type: UPDATE_RELOAD_BY_MP,
+        payload: "Ok",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+export const getBalanceUser = (userID) => {
+  return async (dispatch) => {
+    try {
+      const {data} = await axios.get(`http://localhost:3001/usuarios/bolsillo/${userID}`);
+      const saldo = data.saldo;
+      return dispatch({
+        type: GET_BALANCE_USER,
+        payload: saldo,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+//___________________________________________________
 
 
   export const addToFavorites = (contact) => {

@@ -1,17 +1,42 @@
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO , ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, GET_BALANCE_USER, UPDATE_RELOAD_BY_MP} from "./actions_type";
 
 const initialState = {
   user: {
-    // email: "example@example.com",
-    // pass: "User12345",
-    // name: "PEPITO",
-    // id: "idUser",
-    // saldo: 10000000,
-    // favorites: [
-    //   { name: "Nombre1", id: "id1" },
-    //   { name: "Nombre2", id: "id2" },
-    //   { name: "Nombre3", id: "id3" },
-    // ],
+    name: "PEPITO",
+    id: "idUser",
+    saldo: 0,
+    favorites: [
+      { name: "Nombre1", id: "id1" },
+      { name: "Nombre2", id: "id2" },
+      { name: "Nombre3", id: "id3" },
+    ],
+    contacts: [
+      {
+        name: "John Doe",
+        email: "john@example.com",
+        id: "A123",
+      },
+      {
+        name: "Jane Smith",
+        email: "jane@example.com",
+        id: "B456",
+      },
+      {
+        name: "Alice Johnson",
+        email: "alice@example.com",
+        id: "C789",
+      },
+      {
+        name: "Bob Williams",
+        email: "bob@example.com",
+        id: "D012",
+      },
+      {
+        name: "Emily Brown",
+        email: "emily@example.com",
+        id: "E345",
+      },
+    ],
   },
   testimonials: [
     {
@@ -38,33 +63,6 @@ const initialState = {
     {
       image: "https://img.freepik.com/foto-gratis/estilo-vida-feliz-concepto-bienestar-encantadora-despreocupada-mujer-atractiva-sonriente-riendo-carcajadas-sintiendose-afortunado-optimista-teniendo-vacaciones-increibles-disfrutando-tiempo-libre-divirtiendose_176420-14947.jpg?size=626&ext=jpg", testimony: "Donec vehicula ipsum in tincidunt consectetur. Duis congue purus eu quam malesuada, non auctor elit consequat.",
       name: "Jessica Davis"
-    },
-  ],
-  contacts: [
-    {
-      name: "John Doe",
-      email: "john@example.com",
-      id: "A123",
-    },
-    {
-      name: "Jane Smith",
-      email: "jane@example.com",
-      id: "B456",
-    },
-    {
-      name: "Alice Johnson",
-      email: "alice@example.com",
-      id: "C789",
-    },
-    {
-      name: "Bob Williams",
-      email: "bob@example.com",
-      id: "D012",
-    },
-    {
-      name: "Emily Brown",
-      email: "emily@example.com",
-      id: "E345",
     },
   ],
   error: null,
@@ -109,14 +107,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         plans: GET_ALL_PLANS,
       }
-    case RELOAD_BY_PM:
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          last_recharge: action.payload
-        }
-      }
     case ADD_TO_FAVORITES:
       return {
         ...state,
@@ -133,6 +123,16 @@ const rootReducer = (state = initialState, action) => {
           favorites: state.user.favorites.filter(contact => contact.id !== action.payload),
         },
       };
+    case RELOAD_BY_PM:
+      return { state };
+
+    case GET_BALANCE_USER:
+      return {
+        ...state, user: { ...state.user, saldo: action.payload }
+      };
+
+    case UPDATE_RELOAD_BY_MP:
+      return state;
     default:
       return state;
   }

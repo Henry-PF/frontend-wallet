@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { Await, Link, Navigate, useNavigate } from "react-router-dom";
+import React, {useState } from "react";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Landing_Page/Navbar/Navbar";
-import Footer from "../Landing_Page/Footer/Footer";
 import axios from 'axios';
-import simulatedDatabase from "./data";
 import { userLogin } from "../../redux/actions";
 import styles from "./Login.module.css";
 import swal from "sweetalert";
@@ -12,10 +10,9 @@ import swal from "sweetalert";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(state => state.user)
 
   const [errors, setErrors] = useState({});
-  const [access, setAccess] = useState(false);
+  // const [access, setAccess] = useState(false);
   const [showPwd, setShowPwd] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -47,11 +44,11 @@ const Login = () => {
 
     setErrors(errors);
 
-    if (Object.keys(errors).length === 0) {
-      setAccess(true);
-    } else {
-      setAccess(false);
-    }
+    // if (Object.keys(errors).length === 0) {
+    //   setAccess(true);
+    // } else {
+    //   setAccess(false);
+    // }
   };
 
   const handleChange = (event) => {

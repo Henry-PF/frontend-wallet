@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, connect } from "react-redux";
 // import { addToFavorites, removeFromFavorites } from "./actions";
 import styles from "./Button_Panel.module.css";
 import {
@@ -9,7 +9,7 @@ import {
   removeFromFavorites,
   updateSaldo,
 } from "../../../../redux/actions";
-import ModalTransfer from "./ModalTransfer/ModalTransfer";
+import Recarga from "../Formularios/Recarga";
 
 const ButtonPanel = () => {
   const { contacts, favorites, saldo } = useSelector((state) => state.user);
@@ -17,12 +17,11 @@ const ButtonPanel = () => {
   const [activeTextColor, setActiveTextColor] = useState("blue");
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
   const [selectedContact, setSelectedContact] = useState(null);
   const [selectedFavorite, setSelectedFavorite] = useState(null);
-
 
   const handleTransfer = () => {
     const parsedAmount = parseFloat(amount);
@@ -65,16 +64,17 @@ const ButtonPanel = () => {
   };
   
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const filteredContacts = contacts.filter((contact) =>
-    contact.email.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
+
+  // const filteredContacts = contacts.filter((contact) =>
+  //   contact.email.toLowerCase().includes(searchTerm.toLowerCase())  // Error no se sabe el porque 
+  // );
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
@@ -201,37 +201,18 @@ const ButtonPanel = () => {
       </Button>
 
       {/* <!-- MODAL RECARGA--> */}
-      <div
-        class="modal fade"
-        id="recargaModel"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="recargaModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content" style={{ minWidth: "500px" }}>
+          <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Modal title
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+              <h5 class="modal-title" id="exampleModalLabel">Recarga eligiendo un metodo de pago</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Funcion para poder depositar plata a la cuenta
+              <Recarga/>
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -398,6 +379,7 @@ const ButtonPanel = () => {
                 {/* //BUSCADOR */}
                 <div>
                   {activeSection === "CONTACTOS" ? (
+                    //parte del error en las lineas marcadas de arriba esta aca abajo
                     <div>
                       {/* <input
                     type="text"
@@ -406,11 +388,11 @@ const ButtonPanel = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     style={{marginLeft:'30px'}}
                   /> */}
-                      {filteredContacts.length > 0 ? (
+                      {/* {filteredContacts.length > 0 ? (
                         renderContacts(filteredContacts)
-                      ) : (
+                      ) : (                   
                         <p>No se encontraron contactos.</p>
-                      )}
+                      )} */}
                     </div>
                   ) : favorites && favorites.length > 0 ? (
                     renderFavorites()
@@ -467,4 +449,11 @@ const ButtonPanel = () => {
   );
 };
 
-export default ButtonPanel;
+const mapStateToProps = (state) => {
+  return { contacts: state.user && state.user.contacts,
+           favorites: state.user.favorites,
+           saldo: state.user.saldo
+  };
+}
+
+export default connect(mapStateToProps, null)(ButtonPanel);
