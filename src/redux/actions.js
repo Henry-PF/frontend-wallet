@@ -25,7 +25,7 @@ export const getTestimonials = () => {
 
 export const userLogin = (email, password) => async (dispatch) => {
   try {
-    const { data } = await axios.post('https://backend-6ao2.onrender.com/auth/login', {
+    const { data } = await axios.post('https://backend-6du3.onrender.com/auth/login', {
       user: email,
       pass: password,
     });
@@ -54,7 +54,7 @@ export const userLogin = (email, password) => async (dispatch) => {
 
 export const userRegistration = (formData) => async (dispatch) => {
   try {
-    const response = await axios.post('https://backend-6ao2.onrender.com/usuarios', formData);
+    const response = await axios.post('https://backend-6du3.onrender.com/usuarios', formData);
     console.log('Registro exitoso:', response.data);
   } catch (error) {
     console.error('Error en el registro:', error);
@@ -64,7 +64,7 @@ export const userRegistration = (formData) => async (dispatch) => {
 export const getAllPlanes = () => {
   return async dispatch => {
     try {
-      const { data } = await axios.get('https://backend-6ao2.onrender.com/plans');
+      const { data } = await axios.get('https://backend-6du3.onrender.com/plans');
       dispatch({
         type: GET_ALL_PLANS,
         payload: data
@@ -80,7 +80,7 @@ export const reloadByMp = (userData) => {
     try {
       userData.price = Number(userData.price)
       const { data } = await axios.post(
-        "https://backend-6ao2.onrender.com/paymentByMp/create-order",
+        "https://backend-6du3.onrender.com/paymentByMp/create-order",
         userData
       );
       if (data.body.init_point) window.location.href = data.body.init_point;
@@ -104,8 +104,8 @@ export const UpdateReloadByMp = ({ payment_id, userId }) => {
       })
       const saldo = data.transaction_amount;
       const montoIngresado = { montoIngresado: saldo };
-      await axios.post(`https://backend-6ao2.onrender.com/usuarios/bolsillo/${userId}`, montoIngresado);
-      window.location.href = "https://frontend-1doq.onrender.com/dashboard/mi_billetera";
+      await axios.post(`https://backend-6du3.onrender.com/usuarios/bolsillo/${userId}`, montoIngresado);
+      window.location.href = "https://web-app-nav5.onrender.com/dashboard/mi_billetera";
       return dispatch({
         type: UPDATE_RELOAD_BY_MP,
         payload: "Ok",
@@ -118,7 +118,7 @@ export const UpdateReloadByMp = ({ payment_id, userId }) => {
 export const getBalanceUser = (userID) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`https://backend-6ao2.onrender.com/usuarios/bolsillo/${userID}`);
+      const { data } = await axios.get(`https://backend-6du3.onrender.com/usuarios/bolsillo/${userID}`);
       const saldo = data.saldo;
       return dispatch({
         type: GET_BALANCE_USER,
@@ -138,11 +138,11 @@ export const unsubscribeUser = (data) => {
         email: data
       }
       console.log(emailUser);
-      const findId = await axios.post(`https://backend-6ao2.onrender.com/usuarios/getUserTrans`, emailUser);
+      const findId = await axios.post(`https://backend-6du3.onrender.com/usuarios/getUserTrans`, emailUser);
       console.log(findId);
       const id = { id: findId.data.data.id };
       console.log(id);
-      const deleteUser = await axios.post(`https://backend-6ao2.onrender.com/usuarios/delete`, id);
+      const deleteUser = await axios.post(`https://backend-6du3.onrender.com/usuarios/delete`, id);
       return dispatch({
         type: UNSUBSCRIBE_USER,
         payload: deleteUser,
