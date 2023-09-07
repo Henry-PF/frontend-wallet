@@ -1,4 +1,4 @@
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, GET_BALANCE_USER, UPDATE_RELOAD_BY_MP} from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, GET_BALANCE_USER, UPDATE_RELOAD_BY_MP, FETCH_CONTACTS} from "./actions_type";
 
 const initialState = {
   user: {
@@ -6,37 +6,9 @@ const initialState = {
     id: "idUser",
     saldo: 0,
     favorites: [
-      { name: "Nombre1", id: "id1" },
-      { name: "Nombre2", id: "id2" },
-      { name: "Nombre3", id: "id3" },
+    
     ],
-    contacts: [
-      {
-        name: "John Doe",
-        email: "john@example.com",
-        id: "A123",
-      },
-      {
-        name: "Jane Smith",
-        email: "jane@example.com",
-        id: "B456",
-      },
-      {
-        name: "Alice Johnson",
-        email: "alice@example.com",
-        id: "C789",
-      },
-      {
-        name: "Bob Williams",
-        email: "bob@example.com",
-        id: "D012",
-      },
-      {
-        name: "Emily Brown",
-        email: "emily@example.com",
-        id: "E345",
-      },
-    ],
+    contacts: [], // Aquí se almacenarán los contactos
   },
   testimonials: [
     {
@@ -66,7 +38,9 @@ const initialState = {
     },
   ],
   error: null,
-  plans: []
+  plans: [],
+  // searchTerm: "", // Para filtrar los contactos por correo electrónico
+  selectedContact: null, // Para realizar transferencias
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -107,6 +81,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         plans: GET_ALL_PLANS,
       }
+      
     case ADD_TO_FAVORITES:
       return {
         ...state,
@@ -125,11 +100,19 @@ const rootReducer = (state = initialState, action) => {
       };
     case RELOAD_BY_PM:
       return { state };
-
+      case FETCH_CONTACTS:
+        return {
+          ...state,
+          user: {
+            ...state.user,
+            contacts: action.payload, // Actualiza la propiedad 'contacts' dentro del objeto 'user'
+          },
+        };
     case GET_BALANCE_USER:
       return {
         ...state, user: { ...state.user, saldo: action.payload }
       };
+      
 
     case UPDATE_RELOAD_BY_MP:
       return state;

@@ -12,3 +12,5 @@ export const RELOAD_BY_PM = 'RELOAD_BY_PM';
 export const UPDATE_RELOAD_BY_MP = "UPDATE_RELOAD_BY_MP";
 export const GET_BALANCE_USER = "GET_BALANCE_USER";
 //----------------------------------------------
+
+export const FETCH_CONTACTS = 'FETCH_CONTACTS';

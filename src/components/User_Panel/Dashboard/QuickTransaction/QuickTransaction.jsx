@@ -4,13 +4,12 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateSaldo } from "../../../../redux/actions";
 
-
 const QuickTransaction = () => {
   const [selectedButton, setSelectedButton] = useState(null);
 
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
-  const { favorites, saldo } = useSelector(state => state.user);
+  const { favorites, saldo } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleSelected = (id) => {
@@ -38,7 +37,6 @@ const QuickTransaction = () => {
     }
   };
 
-
   const handleButtonTransfer = () => {
     if (!selectedButton || amount === "") {
       alert("Debe seleccionar usuario y monto a enviar");
@@ -49,9 +47,9 @@ const QuickTransaction = () => {
       dispatch(updateSaldo(nuevoSaldo)); // Dispatch de la acción con el nuevo saldo
       alert("Transferencia realizada con éxito");
       setSelectedButton(null);
-      setAmount("")
+      setAmount("");
     }
-  }
+  };
 
   return (
     <>
@@ -63,14 +61,17 @@ const QuickTransaction = () => {
 
         <div className={styles.favorites}>
           {favorites?.map((e) => (
-            <div key={e.id}>
+            <div key={e.id} className={styles.favoriteItem}>
               <button
                 onClick={() => handleSelected(e.id)}
-                className={`${styles.buttonFav} ${selectedButton === e.id ? styles.selected : ''}`}
+                className={`${styles.buttonFav} ${
+                  selectedButton === e.id ? styles.selected : ""
+                }`}
               >
-                {e.name.charAt(0)}
+                {e.datos_persona.nombre.charAt(0)}
               </button>
-              <p>{e.name}</p>
+              <p>{e.datos_persona.nombre}</p>
+              <p>{e.datos_persona.correo_electronico}</p>
             </div>
           ))}
         </div>
@@ -80,7 +81,8 @@ const QuickTransaction = () => {
             <input
               type="text"
               placeholder="Ingresa el monto"
-              className={`${styles.inputTransfer} ${error && styles.errorInput}`}
+              className={`${styles.inputTransfer} ${error &&
+                styles.errorInput}`}
               value={amount}
               onChange={handleAmountChange}
             />
@@ -93,7 +95,6 @@ const QuickTransaction = () => {
           >
             Enviar
           </button>
-
         </div>
       </div>
     </>

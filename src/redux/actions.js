@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UPDATE_RELOAD_BY_MP, GET_BALANCE_USER} from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UPDATE_RELOAD_BY_MP, GET_BALANCE_USER, FETCH_CONTACTS} from "./actions_type";
 
 
 export const updateSaldo = (newSaldo) => {
@@ -144,3 +144,12 @@ export const getBalanceUser = (userID) => {
       payload: contactId,
     };
   };
+  // actions.js
+
+export const fetchContacts = (contacts) => {
+  return {
+    type: FETCH_CONTACTS,
+    payload: contacts,
+  };
+};
+
