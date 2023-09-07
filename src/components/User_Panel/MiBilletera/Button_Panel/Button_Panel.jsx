@@ -184,7 +184,7 @@ correo_electronico: localStorage.getItem("correo_electronico"),
                 >
                   {favorites.some((fav) => fav.id === contact.id) ? "★" : "☆"}
                 </button>
-                <button>🗑️</button>
+                {/* <button>🗑️</button> */}
               </div>
             </li>
           ))}
@@ -212,7 +212,7 @@ correo_electronico: localStorage.getItem("correo_electronico"),
               <button onClick={() => handleFavoriteClick(favorite)}>
                 {favorites.some((fav) => fav.id === favorite.id) ? "★" : "☆"}
               </button>
-              <button>🗑️</button>
+              {/* <button>🗑️</button> */}
             </div>
           </li>
         ))}
@@ -478,10 +478,11 @@ correo_electronico: localStorage.getItem("correo_electronico"),
                     Dinero disponible ${saldo}
                   </h3>
                 </div>
-                <div>
+                {/* contenedor de concepto y transferencia */}
+                <div  className={styles.conceptoTransfer}>
                   <div
                     className={styles.inputError}
-                    style={{ display: "flex" }}
+                    // style={{ display: "flex" }}
                   >
                     <input
                       type="text"
