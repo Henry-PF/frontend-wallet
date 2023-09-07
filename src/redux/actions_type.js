@@ -14,3 +14,6 @@ export const GET_BALANCE_USER = "GET_BALANCE_USER";
 //--------------------Intercambio de moneda-------------------
 export const UPDATE_TYPE_BALANCE = 'UPDATE_TYPE_BALANCE';
 export const UNSUBSCRIBE_USER = "UNSUBSCRIBE_USER";
+//----------------------------------------------
+
+export const FETCH_CONTACTS = 'FETCH_CONTACTS';

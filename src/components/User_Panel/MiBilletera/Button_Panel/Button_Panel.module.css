@@ -17,6 +17,12 @@
   .contactButtons {
     display: flex;
   }
+  /* Agrega un estilo al contenedor que envuelve la lista de contactos */
+.contactsContainerWrapper {
+  max-height: 300px; /* Altura máxima antes de que aparezca la barra de desplazamiento */
+  overflow-y: auto; /* Aparecerá una barra de desplazamiento vertical cuando se exceda la altura máxima */
+}
+
  
   .contactsFavs{
     display: flex;

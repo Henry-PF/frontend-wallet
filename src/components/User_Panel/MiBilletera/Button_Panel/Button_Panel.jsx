@@ -1,80 +1,126 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch, connect } from "react-redux";
+// import { fetchContacts } from './actions';
 // import { addToFavorites, removeFromFavorites } from "./actions";
 import styles from "./Button_Panel.module.css";
 import {
   addToFavorites,
+  fetchContacts,
   removeFromFavorites,
   updateSaldo,
 } from "../../../../redux/actions";
 import Recarga from "../Formularios/Recarga";
+import axios from "axios";
 
 const ButtonPanel = () => {
   const { contacts, favorites, saldo } = useSelector((state) => state.user);
+  const [concepto, setConcepto] = useState("");
+
   const [activeSection, setActiveSection] = useState("CONTACTOS");
   const [activeTextColor, setActiveTextColor] = useState("blue");
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
   const [selectedContact, setSelectedContact] = useState(null);
   const [selectedFavorite, setSelectedFavorite] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3001/usuarios/getAll")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.data, "SOY DATA");
+        dispatch(fetchContacts(data.data));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
 
-  const handleTransfer = () => {
+  const handleConceptoChange = (e) => {
+    // Actualizar el estado 'concepto' cuando cambie el campo de entrada
+    setConcepto(e.target.value);
+  };
+
+  const handleTransfer = async () => {
     const parsedAmount = parseFloat(amount);
-  
+
     if (selectedContact === null) {
       setError("Selecciona un usuario antes de realizar la transferencia");
       return;
     }
-    // Validación: El campo no puede ser nulo
     if (!amount || amount.trim() === "") {
       setError("El campo no puede ser nulo");
       return;
     }
-  
-    // Validación: Si se ingresa una letra, muestra 'solo número'
+
     if (isNaN(parsedAmount)) {
       setError("Ingresa solo números");
       return;
     }
-  
-    // Validación: Si se ingresa un número negativo, muestra 'monto inválido'
+
     if (parsedAmount < 0) {
       setError("Monto inválido");
       return;
     }
-  
-    // Validación: Si el monto es mayor que el saldo, muestra 'saldo insuficiente'
+
     if (parsedAmount > saldo) {
       setError("Saldo insuficiente");
       return;
     }
-  
-    // Si pasa todas las validaciones, muestra un alert y realiza la transferencia
-    window.confirm('Esta seguro que desea realizar la operacion?')
-    alert("Transferencia realizada con éxito");
-    const nuevoSaldo = saldo - parsedAmount;
-    dispatch(updateSaldo(nuevoSaldo));
-    setAmount("");
-    setError("");
+
+    const correoElectronico = selectedContact.datos_persona.correo_electronico;
+    console.log(
+      correoElectronico,
+      "CORREO ELECTRONICO DEL CONTACTO SELECCIONADO"
+    );
+
+    try {
+      const response1 = await axios.post(
+        "http://localhost:3001/usuarios/getUserTrans",
+        {
+          email: correoElectronico,
+        }
+      );
+
+      if (response1.data.error) {
+        throw new Error(response1.data.error);
+      }
+      //ESTA SERIA LA INFO DEL USUARIO
+      const userData = response1.data;
+
+      const transactionData = {
+        //PONER UN CAMPO QUE PIDA CONCEPTO
+        concepto: concepto,
+        //OBTENER EL EMAIL DE LOCALSTORAGE DEL EMISOR
+        // id_usuario_emisor: "43",
+correo_electronico: localStorage.getItem("correo_electronico"),
+        monto: amount,
+        id_usuario_receptor: userData.id,
+        //OBTENER LA FECHA EN LA QUE SE HIZO CLIC AL BOTON DE ENVIAR
+        fecha: "06/09/2023",
+      };
+
+      const response2 = await axios.post(
+        "http://localhost:3001/transactions/",
+        transactionData
+      );
+
+      if (response2.data.error) {
+        throw new Error(response2.data.error);
+      }
+
+      alert("Transferencia realizada con éxito");
+      const nuevoSaldo = saldo - parsedAmount;
+      dispatch(updateSaldo(nuevoSaldo));
+      setAmount("");
+      setError("");
+    } catch (error) {
+      console.error("Error en la solicitud:", error.message);
+      setError(error.message);
+    }
   };
-  
-
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
-  // const filteredContacts = contacts.filter((contact) =>
-  //   contact.email.toLowerCase().includes(searchTerm.toLowerCase())  // Error no se sabe el porque 
-  // );
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
@@ -91,52 +137,61 @@ const ButtonPanel = () => {
     }
   };
   const handleContactClick = (contact) => {
-    // Si el contacto seleccionado es el mismo que se hace clic, deselecciónalo
     if (selectedContact === contact) {
       setSelectedContact(null);
     } else {
       setSelectedContact(contact);
     }
-    // Puedes realizar otras acciones si es necesario
   };
-  
+
   const handleFavoriteItemClick = (favorite) => {
-    // Si el favorito seleccionado es el mismo que se hace clic, deselecciónalo
     if (selectedFavorite === favorite) {
       setSelectedFavorite(null);
     } else {
       setSelectedFavorite(favorite);
     }
-    // Puedes realizar otras acciones si es necesario
   };
-  
-  
-  
-  const renderContacts = (filteredContacts) => {
+
+  const renderContacts = () => {
+    const filteredContacts = contacts.filter((contact) =>
+      contact.datos_persona.correo_electronico.includes(searchTerm)
+    );
+    console.log(filteredContacts);
+
     return (
-      <ul className={styles.contactsContainer}>
-        {filteredContacts.map((contact) => (
-          <li
-            key={contact.id}
-            className={`${styles.contactItem} ${selectedContact === contact ? styles.selected : ''}`}
-            onClick={() => handleContactClick(contact)}
-          >
-            <div className={styles.contactInfo}>
-              <span>{contact.name}</span>
-              <span>({contact.email})</span>
-            </div>
-            <div className={styles.contactButtons}>
-              <button onClick={() => handleFavoriteClick(contact)}>
-                {favorites.some((fav) => fav.id === contact.id) ? "★" : "☆"}
-              </button>
-              <button>🗑️</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.contactsContainerWrapper}>
+        <ul className={styles.contactsContainer}>
+          {filteredContacts.map((contact) => (
+            <li
+              key={contact.id}
+              className={`${styles.contactItem} ${
+                selectedContact === contact ? styles.selected : ""
+              }`}
+              onClick={() => handleContactClick(contact)}
+            >
+              <div className={styles.contactInfo}>
+                <span>{contact.datos_persona.nombre_usuario}</span>
+                <span>({contact.datos_persona.correo_electronico})</span>
+              </div>
+              <div className={styles.contactButtons}>
+                <button
+                  onClick={() => handleFavoriteClick(contact)}
+                  className={
+                    favorites.some((fav) => fav.id === contact.id)
+                      ? "active"
+                      : ""
+                  }
+                >
+                  {favorites.some((fav) => fav.id === contact.id) ? "★" : "☆"}
+                </button>
+                {/* <button>🗑️</button> */}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   };
-  
 
   const renderFavorites = () => {
     return (
@@ -144,25 +199,26 @@ const ButtonPanel = () => {
         {favorites.map((favorite) => (
           <li
             key={favorite.id}
-            className={`${styles.contactItem} ${selectedFavorite === favorite ? styles.selected : ''}`}
-            onClick={() => handleFavoriteItemClick(favorite)} // Cambia el nombre de la función aquí
+            className={`${styles.contactItem} ${
+              selectedFavorite === favorite ? styles.selected : ""
+            }`}
+            onClick={() => handleFavoriteItemClick(favorite)}
           >
             <div className={styles.contactInfo}>
-              <span>{favorite.name}</span>
-              <span>({favorite.email})</span>
+              <span>{favorite.datos_persona.nombre_usuario}</span>
+              <span>({favorite.datos_persona.correo_electronico})</span>
             </div>
             <div className={styles.contactButtons}>
               <button onClick={() => handleFavoriteClick(favorite)}>
                 {favorites.some((fav) => fav.id === favorite.id) ? "★" : "☆"}
               </button>
-              <button>🗑️</button>
+              {/* <button>🗑️</button> */}
             </div>
           </li>
         ))}
       </ul>
     );
   };
-  
 
   return (
     <div className="d-grid gap-2 col-10 mx-auto ">
@@ -201,18 +257,37 @@ const ButtonPanel = () => {
       </button>
 
       {/* <!-- MODAL RECARGA--> */}
-      <div class="modal fade" id="recargaModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="recargaModel"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Recarga eligiendo un metodo de pago</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h5 class="modal-title" id="exampleModalLabel">
+                Recarga eligiendo un metodo de pago
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
-              <Recarga/>
+              <Recarga />
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -379,20 +454,9 @@ const ButtonPanel = () => {
                 {/* //BUSCADOR */}
                 <div>
                   {activeSection === "CONTACTOS" ? (
-                    //parte del error en las lineas marcadas de arriba esta aca abajo
                     <div>
-                      {/* <input
-                    type="text"
-                    placeholder="Buscar por email..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    style={{marginLeft:'30px'}}
-                  /> */}
-                      {/* {filteredContacts.length > 0 ? (
-                        renderContacts(filteredContacts)
-                      ) : (                   
-                        <p>No se encontraron contactos.</p>
-                      )} */}
+                      {renderContacts()}{" "}
+                      {/* Renderiza la lista de contactos aquí */}
                     </div>
                   ) : favorites && favorites.length > 0 ? (
                     renderFavorites()
@@ -402,31 +466,47 @@ const ButtonPanel = () => {
                 </div>
               </div>
               {/* TRANSFERENCIA */}
-              <div style={{ display: "flex", justifyContent: "center", flexDirection:'column' }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                }}
+              >
                 <div>
                   <h3 style={{ fontSize: "18px" }}>
                     Dinero disponible ${saldo}
                   </h3>
                 </div>
-                <div>
-                  <div className={styles.inputError} style={{display:'flex'}}>
+                {/* contenedor de concepto y transferencia */}
+                <div  className={styles.conceptoTransfer}>
+                  <div
+                    className={styles.inputError}
+                    // style={{ display: "flex" }}
+                  >
                     <input
                       type="text"
                       placeholder="Ingresa el monto"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                     />
+                    <input
+                      type="text"
+                      placeholder="Concepto"
+                      value={concepto}
+                      onChange={handleConceptoChange}
+                      style={{ marginTop: "10px" }}
+                    />
                     {error && <p className={styles.errorMessage}>{error}</p>}
-                     <button
-                    className={styles.buttonTransfer}
-                    onClick={handleTransfer}
-                    type="button"
-                    class="btn btn-dark"
-                  >
-                    Enviar
-                  </button>
+                    <button
+                      className={styles.buttonTransfer}
+                      onClick={handleTransfer}
+                      type="button"
+                      class="btn btn-secondary"
+                    >
+                      Enviar
+                    </button>
                   </div>
-                 
                 </div>
               </div>
             </div>
@@ -449,11 +529,12 @@ const ButtonPanel = () => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { contacts: state.user && state.user.contacts,
-           favorites: state.user.favorites,
-           saldo: state.user.saldo
-  };
-}
+// const mapStateToProps = (state) => {
+//   return { contacts: state.user && state.user.contacts,
+//            favorites: state.user.favorites,
+//            saldo: state.user.saldo
+//   };
+// }
 
-export default connect(mapStateToProps, null)(ButtonPanel);
+// export default connect(mapStateToProps, null)(ButtonPanel);
+export default ButtonPanel;
