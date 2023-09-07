@@ -12,7 +12,6 @@ const Recarga = () => {
     const payment_id = searchParams.get('payment_id');
 
     const [userData, setUserData] = React.useState({
-        id: "1", //Aca se tiene que insertar el id relacionado con el back end
         title: "recarga",
         currency_id: "ARS", //esto tambien tendria que estar relacionado con la cuenta
         quantity: 1,
@@ -34,9 +33,6 @@ const Recarga = () => {
     }
 
     const afterReload = () => {
-        const dataQuery = location.search;
-        const searchParams =  new URLSearchParams(dataQuery);
-        const payment_id = searchParams.get('payment_id');
         const status = searchParams.get('collection_status');
         if(status === "approved"){
         const userId = localStorage.dni; // id del usuario
@@ -52,9 +48,10 @@ const Recarga = () => {
 
     useEffect(() => {
         if(payment_id){
+            console.log(payment_id);
             afterReload();
         }
-    },[]) 
+    },[payment_id]) 
     // const toTransfer = () => {//aca se haria la adaptacion para poder recargar por transferencia
     // }
     // const toCreditDebit = () => {//aca se haria la adaptacion para poder por tarjeta de credito/debito
@@ -75,8 +72,6 @@ const Recarga = () => {
             </div>
             <hr />
             <button class="btn btn-success" type="button" onClick={() => toMercadoPago()}>Mercado Pago</button>
-            <button class="btn btn-success" type="button" disabled>Credito/Debito</button>
-            <button class="btn btn-success" type="button" disabled>Transferencia</button>
         </div>
     )
 }

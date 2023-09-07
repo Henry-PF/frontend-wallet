@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Importa useHistory para redirigir
 import { ModalTerminos } from "../ModalTerminos/ModalTerminos";
 import styles from './ModalBaja.module.css'
+import { useDispatch } from "react-redux";
+import { unsubscribeUser } from "../../../../redux/actions";
 
 export const ModalBaja = (props) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
   const [isChecked, setIsChecked] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
-  const navigate = useNavigate();
   const [modalTerminosShow, setModalTerminosShow] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -25,11 +29,7 @@ export const ModalBaja = (props) => {
       );
 
       if (isConfirmed) {
-        // Simulando la acción de cancelar la cuenta
-        // Puedes reemplazar esta parte con tu lógica real
-        // ...
-
-        // Mostrar alert y redirigir
+        dispatch(unsubscribeUser(localStorage.correo_electronico));
         alert("Cuenta cancelada");
         navigate("/register");
       }

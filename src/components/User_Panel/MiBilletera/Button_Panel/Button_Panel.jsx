@@ -167,38 +167,38 @@ const ButtonPanel = () => {
   return (
     <div className="d-grid gap-2 col-10 mx-auto ">
       <br />
-      <Button
-        class="btn btn-primary"
+      <button
+        class="btn btn-dark"
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#transferirModel"
       >
         Transferir
-      </Button>
-      <Button
-        class="btn btn-warning"
+      </button>
+      <button
+        class="btn btn-dark"
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#recargaModel"
       >
         Recarga
-      </Button>
-      <Button
-        class="btn btn-success"
+      </button>
+      <button
+        class="btn btn-dark"
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#retirarModel"
       >
         Retirar
-      </Button>
-      <Button
-        class="btn btn-warning"
+      </button>
+      <button
+        class="btn btn-dark"
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#pagarModel"
       >
         Pagar
-      </Button>
+      </button>
 
       {/* <!-- MODAL RECARGA--> */}
       <div class="modal fade" id="recargaModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -212,7 +212,7 @@ const ButtonPanel = () => {
               <Recarga/>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -242,7 +242,7 @@ const ButtonPanel = () => {
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-dark"
                 data-bs-dismiss="modal"
               >
                 Close
@@ -280,7 +280,7 @@ const ButtonPanel = () => {
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-dark"
                 data-bs-dismiss="modal"
               >
                 Close
@@ -421,7 +421,7 @@ const ButtonPanel = () => {
                     className={styles.buttonTransfer}
                     onClick={handleTransfer}
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-dark"
                   >
                     Enviar
                   </button>

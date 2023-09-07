@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UPDATE_RELOAD_BY_MP, GET_BALANCE_USER} from "./actions_type";
+import { GET_ALL_PLANS, UPDATE_TYPE_BALANCE, UNSUBSCRIBE_USER, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UPDATE_RELOAD_BY_MP, GET_BALANCE_USER} from "./actions_type";
 
 
 export const updateSaldo = (newSaldo) => {
@@ -94,6 +94,7 @@ export const reloadByMp = (userData) => {
   };
 };
 export const UpdateReloadByMp = ({payment_id, userId}) => {
+  console.log(payment_id);
   return async (dispatch) => {
     try {
         const { data } = await axios.get(`https://api.mercadopago.com/v1/payments/${payment_id}`, {
@@ -104,7 +105,7 @@ export const UpdateReloadByMp = ({payment_id, userId}) => {
         const saldo = data.transaction_amount;
         const montoIngresado = { montoIngresado: saldo};
         await axios.post(`http://localhost:3001/usuarios/bolsillo/${userId}`, montoIngresado);
-        window.location.href = "http://localhost:3002/dashboard/mi_billetera";
+        window.location.href = "http://localhost:3000/dashboard/mi_billetera";
       return dispatch({
         type: UPDATE_RELOAD_BY_MP,
         payload: "Ok",
@@ -128,9 +129,30 @@ export const getBalanceUser = (userID) => {
     }
   };
 }
-//___________________________________________________
-
-
+//_________________________________________________________/
+//_______________Borrado Logico_____________________________
+  export const unsubscribeUser = (data) => {
+    return async (dispatch) => {
+      try {
+        const emailUser = {
+          email: data
+        }
+        console.log(emailUser);
+        const findId = await axios.post(`http://localhost:3001/usuarios/getUserTrans`, emailUser);
+        console.log(findId);
+        const id = { id: findId.data.data.id };
+        console.log(id);
+        const deleteUser = await axios.post(`http://localhost:3001/usuarios/delete`, id);
+        return dispatch({
+          type: UNSUBSCRIBE_USER,
+          payload: deleteUser,
+        });
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  }
+//__________________________________________________________/
   export const addToFavorites = (contact) => {
     return {
       type: ADD_TO_FAVORITES,

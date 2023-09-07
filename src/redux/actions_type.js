@@ -11,4 +11,6 @@ export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 export const RELOAD_BY_PM = 'RELOAD_BY_PM';
 export const UPDATE_RELOAD_BY_MP = "UPDATE_RELOAD_BY_MP";
 export const GET_BALANCE_USER = "GET_BALANCE_USER";
-//----------------------------------------------
+//--------------------Intercambio de moneda-------------------
+export const UPDATE_TYPE_BALANCE = 'UPDATE_TYPE_BALANCE';
+export const UNSUBSCRIBE_USER = "UNSUBSCRIBE_USER";
