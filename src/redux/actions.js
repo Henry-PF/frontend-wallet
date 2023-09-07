@@ -159,12 +159,6 @@ export const addToFavorites = (contact) => {
     payload: contact,
   };
 };
-export const fetchContacts = (contacts) => {
-  return {
-    type: FETCH_CONTACTS,
-    payload: contacts,
-  };
-};
 export const removeFromFavorites = (contactId) => {
   return {
     type: REMOVE_FROM_FAVORITES,
