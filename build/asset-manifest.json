@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.35d3ef98.css",
-    "main.js": "/static/js/main.c7faf29e.js",
+    "main.js": "/static/js/main.506b575a.js",
     "static/media/bgImage.jpg": "/static/media/bgImage.8511e4f1694a015872e2.jpg",
     "static/media/mobile-wallet-banner-img.png": "/static/media/mobile-wallet-banner-img.4ef415f85792353fa6f0.png",
     "static/media/paiment.png": "/static/media/paiment.e758cbb3eaf5576fb7d9.png",
@@ -10,10 +10,10 @@
     "static/media/gestion.png": "/static/media/gestion.dc7baee5557fdfeedc20.png",
     "index.html": "/index.html",
     "main.35d3ef98.css.map": "/static/css/main.35d3ef98.css.map",
-    "main.c7faf29e.js.map": "/static/js/main.c7faf29e.js.map"
+    "main.506b575a.js.map": "/static/js/main.506b575a.js.map"
   },
   "entrypoints": [
     "static/css/main.35d3ef98.css",
-    "static/js/main.c7faf29e.js"
+    "static/js/main.506b575a.js"
   ]
 }
