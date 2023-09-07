@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Landing_Page/Navbar/Navbar";
@@ -70,7 +70,7 @@ const Login = () => {
         user: email,
         pass: password,
       });
-      console.log(data);
+
       if (await data.token) {
         return navigate('/dashboard');
       } else {

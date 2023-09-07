@@ -12,9 +12,9 @@ const AboutUs = () => {
         <>
             <Navbar />
             <section className='container flex-column text-white'>
-                <div>
+                {/* <div>
                     <p className='mt-5 fs-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur voluptates asperiores earum maxime, nulla quis necessitatibus ad blanditiis animi officiis autem repellendus nam amet ea voluptatum voluptatem? Veniam, commodi doloremque.</p>
-                </div>
+                </div> */}
                 <h1 className='py-2 text-center'>Nuestro Equipo</h1>
                 <div >
                     <div className="cards-container">
@@ -25,8 +25,8 @@ const AboutUs = () => {
                                 <div className='card-social'>
                                     <p className='fs-5'>Full Stack Developer</p>
                                     <div className='card-link'>
-                                        <a className='me-3' href="">{linkedin}</a>
-                                        <a className='me-3' href="">{github}</a>
+                                        <a className='me-3' href="https://www.linkedin.com/in/dev-alexander-torres/" target='_blank'>{linkedin}</a>
+                                        <a className='me-3' href="https://github.com/websterAJ" target='_blank'>{github}</a>
                                     </div>
                                 </div>
                             </div>
@@ -38,8 +38,8 @@ const AboutUs = () => {
                                 <div className='card-social'>
                                     <p className='fs-5'>Full Stack Developer</p>
                                     <div className='card-link'>
-                                        <a className='me-3' href="">{linkedin}</a>
-                                        <a className='me-3' href="">{github}</a>
+                                        <a className='me-3' href="https://www.linkedin.com/in/flaviamelissalopez/" target='_blank'>{linkedin}</a>
+                                        <a className='me-3' href="https://github.com/MelLopez22" target='_blank'>{github}</a>
                                     </div>
                                 </div>
                             </div>
@@ -51,13 +51,13 @@ const AboutUs = () => {
                                 <div className='card-social'>
                                     <p className='fs-5'>Full Stack Developer</p>
                                     <div className='card-link'>
-                                        <a className='me-3' href="">{linkedin}</a>
-                                        <a className='me-3' href="">{github}</a>
+                                        <a className='me-3' href="https://www.linkedin.com/in/matias-tari-299a10211/" target='_blank'>{linkedin}</a>
+                                        <a className='me-3' href="https://github.com/MatiTarl " target='_blank'>{github}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='card-container'>
+                        {/* <div className='card-container'>
                             <img src="https://images.pexels.com/photos/716411/pexels-photo-716411.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
                             <div className='card-info'>
                                 <p className='card-name'>Dario Perez</p>
@@ -69,7 +69,7 @@ const AboutUs = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className='card-container'>
                             <img src="https://images.pexels.com/photos/840916/pexels-photo-840916.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
                             <div className='card-info'>
@@ -77,8 +77,8 @@ const AboutUs = () => {
                                 <div className='card-social'>
                                     <p className='fs-5'>Full Stack Developer</p>
                                     <div className='card-link'>
-                                        <a className='me-3' href="">{linkedin}</a>
-                                        <a className='me-3' href="">{github}</a>
+                                        <a className='me-3' href="https://www.linkedin.com/in/agustin-almonacid-1431851bb/" target='_blank'>{linkedin}</a>
+                                        <a className='me-3' href="https://github.com/Turco777 " target='_blank'>{github}</a>
                                     </div>
                                 </div>
                             </div>
@@ -90,8 +90,8 @@ const AboutUs = () => {
                                 <div className='card-social'>
                                     <p className='fs-5'>Full Stack Developer</p>
                                     <div className='card-link'>
-                                        <a className='me-3' href="">{linkedin}</a>
-                                        <a className='me-3' href="">{github}</a>
+                                        <a className='me-3' href="https://www.linkedin.com/in/maximiliano-marquez-519274183/" target='_blank'>{linkedin}</a>
+                                        <a className='me-3' href="https://github.com/MaxyMarquez" target='_blank'>{github}</a>
                                     </div>
                                 </div>
                             </div>
