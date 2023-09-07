@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_PLANS, UPDATE_TYPE_BALANCE, UNSUBSCRIBE_USER, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UPDATE_RELOAD_BY_MP, GET_BALANCE_USER} from "./actions_type";
+import { GET_ALL_PLANS, UPDATE_TYPE_BALANCE, UNSUBSCRIBE_USER, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UPDATE_RELOAD_BY_MP, GET_BALANCE_USER } from "./actions_type";
 
 
 export const updateSaldo = (newSaldo) => {
@@ -70,7 +70,7 @@ export const getAllPlanes = () => {
         payload: data
       })
     } catch (error) {
-
+      console.error(error);
     }
   }
 }
@@ -93,7 +93,7 @@ export const reloadByMp = (userData) => {
     }
   };
 };
-export const UpdateReloadByMp = ({payment_id, userId}) => {
+export const UpdateReloadByMp = ({ payment_id, userId }) => {
   console.log(payment_id);
   return async (dispatch) => {
     try {
@@ -147,22 +147,24 @@ export const getBalanceUser = (userID) => {
           type: UNSUBSCRIBE_USER,
           payload: deleteUser,
         });
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-  }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
 //__________________________________________________________/
-  export const addToFavorites = (contact) => {
-    return {
-      type: ADD_TO_FAVORITES,
-      payload: contact,
-    };
+export const addToFavorites = (contact) => {
+  return {
+    type: ADD_TO_FAVORITES,
+    payload: contact,
   };
-  
-  export const removeFromFavorites = (contactId) => {
-    return {
-      type: REMOVE_FROM_FAVORITES,
-      payload: contactId,
-    };
+};
+
+export const removeFromFavorites = (contactId) => {
+  return {
+    type: REMOVE_FROM_FAVORITES,
+    payload: contactId,
   };
+};
+
+

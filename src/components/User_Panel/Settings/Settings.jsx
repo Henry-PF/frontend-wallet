@@ -31,7 +31,7 @@ const Settings = (props) => {
               <ModalBaja show={modalShow} onHide={() => setModalShow(false)} />
 
               <div className="row m-3 d-flex align-items-center justify-content-center">
-                <div className="col settings-img">
+                {/* <div className="col settings-img">
                   <img
                     src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt=""
@@ -40,7 +40,7 @@ const Settings = (props) => {
                   <button className="p-2 border-0 bg-secundary rounded">
                     Cambiar Imagen
                   </button>
-                </div>
+                </div> */}
               </div>
               <form className="row d-flex flex-column align-items-center">
                 <div className="row w-100 d-flex align-items-center">

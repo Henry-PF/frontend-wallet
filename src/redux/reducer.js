@@ -1,4 +1,4 @@
-import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, GET_BALANCE_USER, UPDATE_RELOAD_BY_MP} from "./actions_type";
+import { GET_ALL_PLANS, GET_TESTIMONIALS, LOGIN_FAILURE, LOGIN_SUCCESS, RELOAD_BY_PM, UPDATE_SALDO, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, GET_BALANCE_USER, UPDATE_RELOAD_BY_MP } from "./actions_type";
 
 const initialState = {
   user: {
@@ -92,7 +92,6 @@ const rootReducer = (state = initialState, action) => {
           token: action.payload.token,
         },
         error: null,
-
       };
     case LOGIN_FAILURE:
       return {
@@ -105,7 +104,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_ALL_PLANS:
       return {
         ...state,
-        plans: GET_ALL_PLANS,
+        plans: action.payload,
       }
     case ADD_TO_FAVORITES:
       return {
