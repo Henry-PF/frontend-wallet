@@ -111,8 +111,32 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state, user: { ...state.user, saldo: action.payload }
       };
-      
-
+    case ADD_TO_FAVORITES:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          favorites: [...state.user.favorites, action.payload],
+        },
+      };
+    case REMOVE_FROM_FAVORITES:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          favorites: state.user.favorites.filter(contact => contact.id !== action.payload),
+        },
+      };
+    case RELOAD_BY_PM:
+      return { state };
+      case FETCH_CONTACTS:
+        return {
+          ...state,
+          user: {
+            ...state.user,
+            contacts: action.payload, // Actualiza la propiedad 'contacts' dentro del objeto 'user'
+          },
+        };
     case UPDATE_RELOAD_BY_MP:
       return state;
     default:

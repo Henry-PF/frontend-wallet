@@ -2,7 +2,6 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch, connect } from "react-redux";
-// import { fetchContacts } from './actions';
 // import { addToFavorites, removeFromFavorites } from "./actions";
 import styles from "./Button_Panel.module.css";
 import {
@@ -27,7 +26,7 @@ const ButtonPanel = () => {
   const [selectedContact, setSelectedContact] = useState(null);
   const [selectedFavorite, setSelectedFavorite] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:3001/usuarios/getAll")
+    fetch("https://backend-6ao2.onrender.com/usuarios/getAll")
       .then((response) => response.json())
       .then((data) => {
         console.log(data.data, "SOY DATA");
@@ -78,7 +77,7 @@ const ButtonPanel = () => {
 
     try {
       const response1 = await axios.post(
-        "http://localhost:3001/usuarios/getUserTrans",
+        "https://backend-6ao2.onrender.com/usuarios/getUserTrans",
         {
           email: correoElectronico,
         }
@@ -103,7 +102,7 @@ correo_electronico: localStorage.getItem("correo_electronico"),
       };
 
       const response2 = await axios.post(
-        "http://localhost:3001/transactions/",
+        "https://backend-6ao2.onrender.com/transactions/",
         transactionData
       );
 
